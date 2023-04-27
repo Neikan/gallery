@@ -10,7 +10,9 @@ ApiPhoto _$ApiPhotoFromJson(Map<String, dynamic> json) => ApiPhoto(
       dateCreate: json['dateCreate'] as String,
       description: json['description'] as String,
       id: json['id'] as int,
-      image: ApiImage.fromJson(json['image'] as Map<String, dynamic>),
+      image: json['image'] == null
+          ? null
+          : ApiImage.fromJson(json['image'] as Map<String, dynamic>),
       name: json['name'] as String,
       popular: json['popular'] as bool,
       recent: json['new'] as bool,

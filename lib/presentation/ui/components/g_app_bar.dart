@@ -10,7 +10,6 @@ class UiAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? leading;
   final List<Widget>? actions;
   final List<Widget>? tabs;
-  final double? elevation;
 
   const UiAppBar({
     super.key,
@@ -18,7 +17,6 @@ class UiAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.leading,
     this.actions,
     this.tabs,
-    this.elevation = 0.0,
   });
 
   @override
@@ -29,7 +27,6 @@ class UiAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   AppBar build(BuildContext context) {
     return AppBar(
-      elevation: elevation,
       title: title,
       leading: leading,
       actions: actions,

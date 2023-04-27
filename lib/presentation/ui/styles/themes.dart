@@ -16,20 +16,21 @@ final defaultTheme = ThemeData(
   dialogTheme: _dialogTheme,
   dividerTheme: _dividerTheme,
   elevatedButtonTheme: _elevatedButtonThemeDefault,
-  iconButtonTheme: _iconButtonTheme,
+  // iconButtonTheme: _iconButtonTheme,
   inputDecorationTheme: _inputDecorationTheme,
   listTileTheme: _listTileTheme,
   primaryColor: colors.brand,
   primarySwatch: colors.materialWhite,
-  primaryTextTheme: _primaryTextTheme,
-  progressIndicatorTheme: _progressIndicatorTheme,
+  // primaryTextTheme: _primaryTextTheme,
+  // progressIndicatorTheme: _progressIndicatorTheme,
   tabBarTheme: _tabBarTheme,
   textButtonTheme: _textButtonTheme,
-  textTheme: _textTheme,
+  // textTheme: _textTheme,
   visualDensity: VisualDensity.adaptivePlatformDensity,
 );
 
 const _appBarTitleTheme = AppBarTheme(
+  elevation: 0.0,
   systemOverlayStyle: SystemUiOverlayStyle(
     statusBarColor: Colors.black,
     statusBarIconBrightness: Brightness.light,
@@ -57,12 +58,12 @@ const _bottomNavigationBarTheme = BottomNavigationBarThemeData(
   unselectedIconTheme: IconThemeData(color: colors.gray),
 );
 
-final _cardTheme = CardTheme(
+const _cardTheme = CardTheme(
   color: colors.grayLight,
   elevation: 0.0,
-  margin: const EdgeInsets.all(0.0),
+  margin: EdgeInsets.all(0.0),
   shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(5.0),
+    borderRadius: BorderRadius.all(borderRaduisSmall),
   ),
 );
 
@@ -76,7 +77,7 @@ const _dialogTheme = DialogTheme(
   alignment: Alignment.bottomCenter,
   actionsPadding: EdgeInsets.only(top: 10.0),
   shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.all(defaultBorderRaduis),
+    borderRadius: BorderRadius.all(borderRaduisDefault),
   ),
   contentTextStyle: TextStyle(
     fontSize: 15.0,
@@ -95,7 +96,7 @@ final _elevatedButtonThemeDefault = ElevatedButtonThemeData(
     shape: MaterialStateProperty.all<OutlinedBorder?>(
       const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
-          defaultBorderRaduis,
+          borderRaduisDefault,
         ),
       ),
     ),
@@ -120,15 +121,23 @@ const _inputDecorationTheme = InputDecorationTheme(
     borderSide: BorderSide(
       color: colors.grayLight,
     ),
-    borderRadius: BorderRadius.all(defaultBorderRaduis),
+    borderRadius: BorderRadius.all(borderRaduisDefault),
   ),
   focusedBorder: OutlineInputBorder(
     borderSide: BorderSide(
       color: colors.brand,
     ),
-    borderRadius: BorderRadius.all(defaultBorderRaduis),
+    borderRadius: BorderRadius.all(borderRaduisDefault),
   ),
   suffixIconColor: colors.brand,
+);
+
+const _listTileTheme = ListTileThemeData(
+  minVerticalPadding: 0.0,
+  contentPadding: EdgeInsets.zero,
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(borderRaduisSmall),
+  ),
 );
 
 const _tabBarTheme = TabBarTheme(
@@ -169,7 +178,7 @@ final _textButtonTheme = TextButtonThemeData(
           color: Colors.black,
         ),
         borderRadius: BorderRadius.all(
-          defaultBorderRaduis,
+          borderRaduisDefault,
         ),
       ),
     ),
@@ -178,49 +187,40 @@ final _textButtonTheme = TextButtonThemeData(
 
 // --------------------------------------------------------------------- //
 
-const _progressIndicatorTheme = ProgressIndicatorThemeData(
-  color: colors.gray,
-);
+// const _progressIndicatorTheme = ProgressIndicatorThemeData(
+//   color: colors.gray,
+// );
 
-final _iconButtonTheme = IconButtonThemeData(
-  style: ButtonStyle(
-    iconColor: MaterialStateProperty.all<Color?>(Colors.white),
-  ),
-);
+// final _iconButtonTheme = IconButtonThemeData(
+//   style: ButtonStyle(
+//     iconColor: MaterialStateProperty.all<Color?>(Colors.white),
+//   ),
+// );
 
-const _listTileTheme = ListTileThemeData(
-  dense: true,
-  minVerticalPadding: 0.0,
-  contentPadding: EdgeInsets.fromLTRB(25.0, 0.0, 9.0, 0.0),
-  shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.all(defaultBorderRaduis),
-  ),
-);
+// const _textTheme = TextTheme(
+//   bodyLarge: TextStyle(
+//     fontSize: 17.0,
+//     height: 1.0,
+//   ),
+//   bodyMedium: TextStyle(
+//     fontSize: 15.0,
+//     height: 1.1,
+//   ),
+//   bodySmall: TextStyle(
+//     fontSize: 15.0,
+//     height: 1.0,
+//   ),
+// );
 
-const _textTheme = TextTheme(
-  bodyLarge: TextStyle(
-    fontSize: 17.0,
-    height: 1.0,
-  ),
-  bodyMedium: TextStyle(
-    fontSize: 15.0,
-    height: 1.1,
-  ),
-  bodySmall: TextStyle(
-    fontSize: 15.0,
-    height: 1.0,
-  ),
-);
-
-const _primaryTextTheme = TextTheme(
-  titleSmall: TextStyle(
-    fontSize: 10.0,
-  ),
-  titleMedium: TextStyle(
-    fontSize: 12.0,
-  ),
-  headlineSmall: TextStyle(
-    fontSize: 20.0,
-    fontWeight: FontWeight.w700,
-  ),
-);
+// const _primaryTextTheme = TextTheme(
+//   titleSmall: TextStyle(
+//     fontSize: 10.0,
+//   ),
+//   titleMedium: TextStyle(
+//     fontSize: 12.0,
+//   ),
+//   headlineSmall: TextStyle(
+//     fontSize: 20.0,
+//     fontWeight: FontWeight.w700,
+//   ),
+// );

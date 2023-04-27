@@ -42,18 +42,18 @@ class _GBottomBarDialogAction extends StatelessWidget {
   BorderRadius _getBorderRadius() {
     if (borderType == InkBorderEnum.top) {
       return const BorderRadius.only(
-        topLeft: defaultBorderRaduis,
-        topRight: defaultBorderRaduis,
+        topLeft: borderRaduisDefault,
+        topRight: borderRaduisDefault,
       );
     }
 
     if (borderType == InkBorderEnum.bottom) {
       return const BorderRadius.only(
-        bottomLeft: defaultBorderRaduis,
-        bottomRight: defaultBorderRaduis,
+        bottomLeft: borderRaduisDefault,
+        bottomRight: borderRaduisDefault,
       );
     }
 
-    return const BorderRadius.all(defaultBorderRaduis);
+    return const BorderRadius.all(borderRaduisDefault);
   }
 }

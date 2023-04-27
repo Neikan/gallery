@@ -13,7 +13,7 @@ class ApiPhoto {
   @JsonKey(name: 'new')
   final bool recent;
   final bool popular;
-  final ApiImage image;
+  final ApiImage? image;
   final String? user;
 
   ApiPhoto({

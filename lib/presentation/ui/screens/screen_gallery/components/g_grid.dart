@@ -16,6 +16,8 @@ class _GGrid extends StatefulWidget {
 class _GGridState extends State<_GGrid> {
   final ScrollController _scrollController = ScrollController();
 
+  int? lastIndex;
+
   @override
   void initState() {
     super.initState();
@@ -34,28 +36,47 @@ class _GGridState extends State<_GGrid> {
     final currentCount = widget.photos.data.length;
     final totalItems = widget.photos.totalItems;
 
-    final itemCount =
-        totalItems <= currentCount ? currentCount : currentCount + 1;
+    // final itemCount =
+    //     totalItems <= currentCount ? currentCount : currentCount + 1;
 
-    return GridView.builder(
-      key: PageStorageKey(widget.tab),
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 30.0),
-      physics: const BouncingScrollPhysics(
-        parent: AlwaysScrollableScrollPhysics(),
-      ),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisExtent: 100.0,
-        crossAxisSpacing: 10.0,
-        mainAxisSpacing: 10.0,
-      ),
-      itemCount: itemCount,
-      itemBuilder: (_, index) => index >= currentCount
-          ? const GLoader()
-          : _GGridCard(
-              photo: widget.photos.data[index],
+    final itemCount = totalItems <= currentCount ? currentCount : currentCount;
+
+    return Column(
+      children: [
+        Expanded(
+          child: GridView.builder(
+            key: PageStorageKey(widget.tab.name),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 30.0,
             ),
-      controller: _scrollController,
+            physics: const BouncingScrollPhysics(
+              parent: AlwaysScrollableScrollPhysics(),
+            ),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 10.0,
+              mainAxisSpacing: 10.0,
+              childAspectRatio: 2.0,
+            ),
+            itemCount: itemCount,
+            itemBuilder: (_, index) {
+              // lastIndex = index;
+
+              return _GGridCard(
+                photo: widget.photos.data[index],
+              );
+
+              // return index >= currentCount
+              //     ? const GLoader()
+              //     : _GGridCard(
+              //         photo: widget.photos.data[index],
+              //       );
+            },
+            controller: _scrollController,
+          ),
+        ),
+      ],
     );
   }
 
@@ -69,7 +90,7 @@ class _GGridState extends State<_GGrid> {
   }
 
   void _handleScroll() {
-    if (_isBottom) {
+    if (_isScrollable) {
       if (widget.tab == TabGalleryEnum.recent) {
         BlocProvider.of<BlocGalleryRecent>(context)
             .add(BlocGalleryRecentEventNext());
@@ -82,7 +103,7 @@ class _GGridState extends State<_GGrid> {
     }
   }
 
-  bool get _isBottom {
+  bool get _isScrollable {
     if (!_scrollController.hasClients) return false;
 
     final maxScroll = _scrollController.position.maxScrollExtent;
