@@ -9,14 +9,12 @@ part 'api_photo.g.dart';
 @JsonSerializable()
 class ApiPhoto {
   final int id;
-  final String name;
-  final String dateCreate;
-  final String description;
+  final String dateCreate, description, name;
   @JsonKey(name: 'new')
   final bool recent;
   final bool popular;
   final ApiImage image;
-  final String user;
+  final String? user;
 
   ApiPhoto({
     required this.dateCreate,
@@ -26,7 +24,7 @@ class ApiPhoto {
     required this.name,
     required this.popular,
     required this.recent,
-    required this.user,
+    this.user,
   });
 
   factory ApiPhoto.fromJson(Map<String, dynamic> json) =>

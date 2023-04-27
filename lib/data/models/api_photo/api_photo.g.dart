@@ -14,14 +14,14 @@ ApiPhoto _$ApiPhotoFromJson(Map<String, dynamic> json) => ApiPhoto(
       name: json['name'] as String,
       popular: json['popular'] as bool,
       recent: json['new'] as bool,
-      user: json['user'] as String,
+      user: json['user'] as String?,
     );
 
 Map<String, dynamic> _$ApiPhotoToJson(ApiPhoto instance) => <String, dynamic>{
       'id': instance.id,
-      'name': instance.name,
       'dateCreate': instance.dateCreate,
       'description': instance.description,
+      'name': instance.name,
       'new': instance.recent,
       'popular': instance.popular,
       'image': instance.image,
