@@ -49,12 +49,17 @@ const _appBarTitleTheme = AppBarTheme(
   ),
 );
 
+const _bottomNavigationBarText = TextStyle(
+  fontSize: 12.0,
+  fontFamily: 'Roboto',
+);
+
 const _bottomNavigationBarTheme = BottomNavigationBarThemeData(
   backgroundColor: Colors.white,
   selectedItemColor: colors.brand,
-  selectedLabelStyle: TextStyle(fontSize: 12.0),
+  selectedLabelStyle: _bottomNavigationBarText,
   unselectedItemColor: colors.gray,
-  unselectedLabelStyle: TextStyle(fontSize: 12.0),
+  unselectedLabelStyle: _bottomNavigationBarText,
   unselectedIconTheme: IconThemeData(color: colors.gray),
 );
 
