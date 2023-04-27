@@ -24,9 +24,4 @@ class ServiceHttp {
         path,
         queryParameters: queryParameters,
       );
-
-  Future<Response<dynamic>> getFile(String path) async => await dio.get(
-        path,
-        options: Options(responseType: ResponseType.bytes),
-      );
 }

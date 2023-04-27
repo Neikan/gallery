@@ -3,10 +3,12 @@ import 'dart:async';
 
 // Package imports:
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 
 // Project imports:
 import 'package:gallery_app/data/models/app_photos/app_photos.dart';
 import 'package:gallery_app/data/repositories/repository_gallery/repository_gallery.dart';
+import 'package:gallery_app/data/services/service_http_exceptions.dart';
 import 'package:gallery_app/domain/blocs/bloc_gallery_popular/bloc_gallery_popular_state.dart';
 import 'package:gallery_app/domain/utils/throttle.dart';
 
@@ -77,8 +79,10 @@ class BlocGalleryPopular
       }
 
       emit(BlocGalleryPopularState.loaded(_photos));
-    } catch (e) {
-      emit(BlocGalleryPopularState.error(e.toString()));
+    } on DioError catch (e) {
+      final description = ServiceHttpExceptions.fromError(e).toString();
+
+      emit(BlocGalleryPopularState.error(description));
     }
   }
 }

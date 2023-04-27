@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
 import 'package:gallery_app/data/repositories/repository_photo/repository_photo.dart';
+import 'package:gallery_app/data/services/service_http_exceptions.dart';
 import 'package:gallery_app/domain/blocs/bloc_photo/bloc_photo_events.dart';
 import 'package:gallery_app/domain/blocs/bloc_photo/bloc_photo_state.dart';
 
@@ -25,7 +26,9 @@ class BlocPhoto extends Bloc<BlocPhotoEvent, BlocPhotoState> {
         emit(BlocPhotoState.loaded(photo));
       }
     } on DioError catch (e) {
-      emit(BlocPhotoState.error(e.message));
+      final description = ServiceHttpExceptions.fromError(e).toString();
+
+      emit(BlocPhotoState.error(description));
     }
   }
 }

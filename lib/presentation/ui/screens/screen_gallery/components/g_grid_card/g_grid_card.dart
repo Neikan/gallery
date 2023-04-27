@@ -12,17 +12,15 @@ class _GGridCard extends StatelessWidget {
     return Card(
       child: ListTile(
         title: _GGridCardPhoto(photo: photo),
-        onTap: photo.image != null
-            ? () {
-                final arguments = {keyPhoto: photo};
+        onTap: () {
+          final arguments = {keyPhoto: photo};
 
-                Navigator.pushNamed(
-                  context,
-                  routePhoto,
-                  arguments: arguments,
-                );
-              }
-            : null,
+          Navigator.pushNamed(
+            context,
+            routePhoto,
+            arguments: arguments,
+          );
+        },
       ),
     );
   }

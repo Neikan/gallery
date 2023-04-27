@@ -1,4 +1,5 @@
 // Package imports:
+import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
@@ -30,7 +31,7 @@ class BlocGalleryPhoto extends Bloc<BlocGalleryPhotoEvent, BlocImageState> {
             ? BlocImageState.loaded(filename)
             : const BlocImageState.error(),
       );
-    } catch (_) {
+    } on DioError catch (_) {
       emit(const BlocImageState.error());
     }
   }

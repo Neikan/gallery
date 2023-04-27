@@ -21,45 +21,47 @@ class GDataEmpty extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const GSvg(
-            name: nameErrorData,
-            size: sizeErrorData,
-            padding: EdgeInsets.all(30.0),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const GSvg(
+              name: nameErrorData,
+              size: sizeErrorData,
+              padding: EdgeInsets.all(30.0),
             ),
-            child: Text(
-              message ?? labelsError[keyTitle]!,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 20,
-                color: colors.blue,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
-          if (description != null)
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 16.0,
-                vertical: 10.0,
               ),
               child: Text(
-                description!,
+                message ?? labelsError[keyTitle]!,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontSize: 12,
-                  height: 1.67,
-                  color: colors.gray,
+                  fontSize: 20,
+                  color: colors.blue,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ),
-        ],
+            if (description != null)
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 10.0,
+                ),
+                child: Text(
+                  description!,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    height: 1.67,
+                    color: colors.gray,
+                  ),
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }
