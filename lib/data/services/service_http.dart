@@ -16,5 +16,12 @@ class ServiceHttp {
     ..options.receiveTimeout = 50000
     ..options.baseUrl = urlBase;
 
-  Future<Response<dynamic>> get(String path) async => await dio.get(path);
+  Future<Response<dynamic>> get(
+    String path, {
+    Map<String, dynamic>? queryParameters,
+  }) async =>
+      await dio.get(
+        path,
+        queryParameters: queryParameters,
+      );
 }
