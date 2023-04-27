@@ -8,10 +8,15 @@ class RepositoryGalleryImp extends RepositoryGallery {
   const RepositoryGalleryImp();
 
   @override
-  Future<List<ApiPhoto>> getData() async {
+  Future<List<ApiPhoto>> getData({
+    Map<String, dynamic>? queryParameters,
+  }) async {
     List<ApiPhoto> photos = [];
 
-    final response = await ServiceHttp.instance.get(urlPhotos);
+    final response = await ServiceHttp.instance.get(
+      urlPhotos,
+      queryParameters: queryParameters,
+    );
 
     if (response.statusCode == 200) {
       photos = List<dynamic>.from(response.data['data'])
