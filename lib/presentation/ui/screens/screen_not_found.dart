@@ -11,10 +11,11 @@ class ScreenNotFound extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: UiAppBar(),
+    return Scaffold(
+      appBar: const UiAppBar(),
       body: SafeArea(
         child: GDataEmpty(
+          onRefresh: () async {},
           message: labelNotFound,
         ),
       ),

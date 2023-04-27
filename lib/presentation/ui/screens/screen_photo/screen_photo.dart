@@ -33,7 +33,10 @@ class ScreenPhoto extends StatelessWidget {
                 children: const [],
               ),
             ),
-            error: (description) => GDataEmpty(description: description),
+            error: (description) => GDataEmpty(
+              onRefresh: () async {},
+              description: description,
+            ),
           ),
         ),
       ),

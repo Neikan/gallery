@@ -1,12 +1,14 @@
 part of '../screen_gallery.dart';
 
 class _GGrid extends StatefulWidget {
-  final TabGalleryEnum tab;
+  final Future<dynamic> Function() onRefresh;
   final AppPhotos photos;
+  final TabGalleryEnum tab;
 
   const _GGrid({
-    required this.tab,
+    required this.onRefresh,
     required this.photos,
+    required this.tab,
   });
 
   @override
@@ -29,6 +31,7 @@ class _GGridState extends State<_GGrid> {
   Widget build(BuildContext context) {
     if (widget.photos.data.isEmpty) {
       return GDataEmpty(
+        onRefresh: widget.onRefresh,
         message: labelsGallery[keyContent],
       );
     }
@@ -41,42 +44,45 @@ class _GGridState extends State<_GGrid> {
 
     final itemCount = totalItems <= currentCount ? currentCount : currentCount;
 
-    return Column(
-      children: [
-        Expanded(
-          child: GridView.builder(
-            key: PageStorageKey(widget.tab.name),
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
-              vertical: 30.0,
-            ),
-            physics: const BouncingScrollPhysics(
-              parent: AlwaysScrollableScrollPhysics(),
-            ),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 10.0,
-              mainAxisSpacing: 10.0,
-              childAspectRatio: 2.0,
-            ),
-            itemCount: itemCount,
-            itemBuilder: (_, index) {
-              // lastIndex = index;
+    return GRefresh(
+      onRefresh: widget.onRefresh,
+      child: Column(
+        children: [
+          Expanded(
+            child: GridView.builder(
+              key: PageStorageKey(widget.tab.name),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 30.0,
+              ),
+              physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics(),
+              ),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 10.0,
+                mainAxisSpacing: 10.0,
+                childAspectRatio: 2.0,
+              ),
+              itemCount: itemCount,
+              itemBuilder: (_, index) {
+                // lastIndex = index;
 
-              return _GGridCard(
-                photo: widget.photos.data[index],
-              );
+                return _GGridCard(
+                  photo: widget.photos.data[index],
+                );
 
-              // return index >= currentCount
-              //     ? const GLoader()
-              //     : _GGridCard(
-              //         photo: widget.photos.data[index],
-              //       );
-            },
-            controller: _scrollController,
+                // return index >= currentCount
+                //     ? const GLoader()
+                //     : _GGridCard(
+                //         photo: widget.photos.data[index],
+                //       );
+              },
+              controller: _scrollController,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 

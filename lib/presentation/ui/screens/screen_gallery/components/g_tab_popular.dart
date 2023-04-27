@@ -3,19 +3,22 @@ part of '../screen_gallery.dart';
 class _GTabPopular extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GRefresh(
-      onRefresh: () async {
-        BlocProvider.of<BlocGalleryPopular>(context)
-            .add(BlocGalleryPopularEventInit());
-      },
-      child: BlocBuilder<BlocGalleryPopular, BlocGalleryPopularState>(
-        builder: (_, state) => state.when(
-          loading: () => const GLoader(),
-          loaded: (photos) => _GGrid(
-            tab: TabGalleryEnum.popular,
-            photos: photos,
-          ),
-          error: (description) => GDataEmpty(description: description),
+    Future<void> handleRefresh() async {
+      BlocProvider.of<BlocGalleryPopular>(context)
+          .add(BlocGalleryPopularEventInit());
+    }
+
+    return BlocBuilder<BlocGalleryPopular, BlocGalleryPopularState>(
+      builder: (_, state) => state.when(
+        loading: () => const GLoader(),
+        loaded: (photos) => _GGrid(
+          onRefresh: handleRefresh,
+          photos: photos,
+          tab: TabGalleryEnum.popular,
+        ),
+        error: (description) => GDataEmpty(
+          onRefresh: handleRefresh,
+          description: description,
         ),
       ),
     );
