@@ -15,7 +15,7 @@ class _GTabRecent extends StatelessWidget {
             tab: TabGalleryEnum.recent,
             photos: photos,
           ),
-          error: (message) => GErrorData(message: message),
+          error: (description) => GDataEmpty(description: description),
         ),
       ),
     );

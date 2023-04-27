@@ -19,22 +19,22 @@ mixin _$BlocGalleryRecentState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<ApiPhoto> photos) loaded,
-    required TResult Function(String message) error,
+    required TResult Function(AppPhotos photos) loaded,
+    required TResult Function(String description) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<ApiPhoto> photos)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function(AppPhotos photos)? loaded,
+    TResult? Function(String description)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<ApiPhoto> photos)? loaded,
-    TResult Function(String message)? error,
+    TResult Function(AppPhotos photos)? loaded,
+    TResult Function(String description)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -124,8 +124,8 @@ class _$BlocGalleryRecentStateLoading implements BlocGalleryRecentStateLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<ApiPhoto> photos) loaded,
-    required TResult Function(String message) error,
+    required TResult Function(AppPhotos photos) loaded,
+    required TResult Function(String description) error,
   }) {
     return loading();
   }
@@ -134,8 +134,8 @@ class _$BlocGalleryRecentStateLoading implements BlocGalleryRecentStateLoading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<ApiPhoto> photos)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function(AppPhotos photos)? loaded,
+    TResult? Function(String description)? error,
   }) {
     return loading?.call();
   }
@@ -144,8 +144,8 @@ class _$BlocGalleryRecentStateLoading implements BlocGalleryRecentStateLoading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<ApiPhoto> photos)? loaded,
-    TResult Function(String message)? error,
+    TResult Function(AppPhotos photos)? loaded,
+    TResult Function(String description)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -201,7 +201,9 @@ abstract class _$$BlocGalleryRecentStateLoadedCopyWith<$Res> {
           $Res Function(_$BlocGalleryRecentStateLoaded) then) =
       __$$BlocGalleryRecentStateLoadedCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<ApiPhoto> photos});
+  $Res call({AppPhotos photos});
+
+  $AppPhotosCopyWith<$Res> get photos;
 }
 
 /// @nodoc
@@ -221,26 +223,28 @@ class __$$BlocGalleryRecentStateLoadedCopyWithImpl<$Res>
   }) {
     return _then(_$BlocGalleryRecentStateLoaded(
       null == photos
-          ? _value._photos
+          ? _value.photos
           : photos // ignore: cast_nullable_to_non_nullable
-              as List<ApiPhoto>,
+              as AppPhotos,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AppPhotosCopyWith<$Res> get photos {
+    return $AppPhotosCopyWith<$Res>(_value.photos, (value) {
+      return _then(_value.copyWith(photos: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$BlocGalleryRecentStateLoaded implements BlocGalleryRecentStateLoaded {
-  const _$BlocGalleryRecentStateLoaded(final List<ApiPhoto> photos)
-      : _photos = photos;
+  const _$BlocGalleryRecentStateLoaded(this.photos);
 
-  final List<ApiPhoto> _photos;
   @override
-  List<ApiPhoto> get photos {
-    if (_photos is EqualUnmodifiableListView) return _photos;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_photos);
-  }
+  final AppPhotos photos;
 
   @override
   String toString() {
@@ -252,12 +256,11 @@ class _$BlocGalleryRecentStateLoaded implements BlocGalleryRecentStateLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BlocGalleryRecentStateLoaded &&
-            const DeepCollectionEquality().equals(other._photos, _photos));
+            (identical(other.photos, photos) || other.photos == photos));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_photos));
+  int get hashCode => Object.hash(runtimeType, photos);
 
   @JsonKey(ignore: true)
   @override
@@ -270,8 +273,8 @@ class _$BlocGalleryRecentStateLoaded implements BlocGalleryRecentStateLoaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<ApiPhoto> photos) loaded,
-    required TResult Function(String message) error,
+    required TResult Function(AppPhotos photos) loaded,
+    required TResult Function(String description) error,
   }) {
     return loaded(photos);
   }
@@ -280,8 +283,8 @@ class _$BlocGalleryRecentStateLoaded implements BlocGalleryRecentStateLoaded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<ApiPhoto> photos)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function(AppPhotos photos)? loaded,
+    TResult? Function(String description)? error,
   }) {
     return loaded?.call(photos);
   }
@@ -290,8 +293,8 @@ class _$BlocGalleryRecentStateLoaded implements BlocGalleryRecentStateLoaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<ApiPhoto> photos)? loaded,
-    TResult Function(String message)? error,
+    TResult Function(AppPhotos photos)? loaded,
+    TResult Function(String description)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -336,10 +339,10 @@ class _$BlocGalleryRecentStateLoaded implements BlocGalleryRecentStateLoaded {
 }
 
 abstract class BlocGalleryRecentStateLoaded implements BlocGalleryRecentState {
-  const factory BlocGalleryRecentStateLoaded(final List<ApiPhoto> photos) =
+  const factory BlocGalleryRecentStateLoaded(final AppPhotos photos) =
       _$BlocGalleryRecentStateLoaded;
 
-  List<ApiPhoto> get photos;
+  AppPhotos get photos;
   @JsonKey(ignore: true)
   _$$BlocGalleryRecentStateLoadedCopyWith<_$BlocGalleryRecentStateLoaded>
       get copyWith => throw _privateConstructorUsedError;
@@ -352,7 +355,7 @@ abstract class _$$BlocGalleryRecentStateErrorCopyWith<$Res> {
           $Res Function(_$BlocGalleryRecentStateError) then) =
       __$$BlocGalleryRecentStateErrorCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message});
+  $Res call({String description});
 }
 
 /// @nodoc
@@ -368,12 +371,12 @@ class __$$BlocGalleryRecentStateErrorCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = null,
+    Object? description = null,
   }) {
     return _then(_$BlocGalleryRecentStateError(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
+      null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -382,14 +385,14 @@ class __$$BlocGalleryRecentStateErrorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$BlocGalleryRecentStateError implements BlocGalleryRecentStateError {
-  const _$BlocGalleryRecentStateError(this.message);
+  const _$BlocGalleryRecentStateError(this.description);
 
   @override
-  final String message;
+  final String description;
 
   @override
   String toString() {
-    return 'BlocGalleryRecentState.error(message: $message)';
+    return 'BlocGalleryRecentState.error(description: $description)';
   }
 
   @override
@@ -397,11 +400,12 @@ class _$BlocGalleryRecentStateError implements BlocGalleryRecentStateError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BlocGalleryRecentStateError &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message);
+  int get hashCode => Object.hash(runtimeType, description);
 
   @JsonKey(ignore: true)
   @override
@@ -414,32 +418,32 @@ class _$BlocGalleryRecentStateError implements BlocGalleryRecentStateError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<ApiPhoto> photos) loaded,
-    required TResult Function(String message) error,
+    required TResult Function(AppPhotos photos) loaded,
+    required TResult Function(String description) error,
   }) {
-    return error(message);
+    return error(description);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<ApiPhoto> photos)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function(AppPhotos photos)? loaded,
+    TResult? Function(String description)? error,
   }) {
-    return error?.call(message);
+    return error?.call(description);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<ApiPhoto> photos)? loaded,
-    TResult Function(String message)? error,
+    TResult Function(AppPhotos photos)? loaded,
+    TResult Function(String description)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(message);
+      return error(description);
     }
     return orElse();
   }
@@ -480,10 +484,10 @@ class _$BlocGalleryRecentStateError implements BlocGalleryRecentStateError {
 }
 
 abstract class BlocGalleryRecentStateError implements BlocGalleryRecentState {
-  const factory BlocGalleryRecentStateError(final String message) =
+  const factory BlocGalleryRecentStateError(final String description) =
       _$BlocGalleryRecentStateError;
 
-  String get message;
+  String get description;
   @JsonKey(ignore: true)
   _$$BlocGalleryRecentStateErrorCopyWith<_$BlocGalleryRecentStateError>
       get copyWith => throw _privateConstructorUsedError;

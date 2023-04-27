@@ -19,22 +19,22 @@ mixin _$BlocGalleryPopularState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<ApiPhoto> photos) loaded,
-    required TResult Function(String message) error,
+    required TResult Function(AppPhotos photos) loaded,
+    required TResult Function(String description) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<ApiPhoto> photos)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function(AppPhotos photos)? loaded,
+    TResult? Function(String description)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<ApiPhoto> photos)? loaded,
-    TResult Function(String message)? error,
+    TResult Function(AppPhotos photos)? loaded,
+    TResult Function(String description)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -125,8 +125,8 @@ class _$BlocGalleryPopularStateLoading
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<ApiPhoto> photos) loaded,
-    required TResult Function(String message) error,
+    required TResult Function(AppPhotos photos) loaded,
+    required TResult Function(String description) error,
   }) {
     return loading();
   }
@@ -135,8 +135,8 @@ class _$BlocGalleryPopularStateLoading
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<ApiPhoto> photos)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function(AppPhotos photos)? loaded,
+    TResult? Function(String description)? error,
   }) {
     return loading?.call();
   }
@@ -145,8 +145,8 @@ class _$BlocGalleryPopularStateLoading
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<ApiPhoto> photos)? loaded,
-    TResult Function(String message)? error,
+    TResult Function(AppPhotos photos)? loaded,
+    TResult Function(String description)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -203,7 +203,9 @@ abstract class _$$BlocGalleryPopularStateLoadedCopyWith<$Res> {
           $Res Function(_$BlocGalleryPopularStateLoaded) then) =
       __$$BlocGalleryPopularStateLoadedCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<ApiPhoto> photos});
+  $Res call({AppPhotos photos});
+
+  $AppPhotosCopyWith<$Res> get photos;
 }
 
 /// @nodoc
@@ -223,26 +225,28 @@ class __$$BlocGalleryPopularStateLoadedCopyWithImpl<$Res>
   }) {
     return _then(_$BlocGalleryPopularStateLoaded(
       null == photos
-          ? _value._photos
+          ? _value.photos
           : photos // ignore: cast_nullable_to_non_nullable
-              as List<ApiPhoto>,
+              as AppPhotos,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AppPhotosCopyWith<$Res> get photos {
+    return $AppPhotosCopyWith<$Res>(_value.photos, (value) {
+      return _then(_value.copyWith(photos: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$BlocGalleryPopularStateLoaded implements BlocGalleryPopularStateLoaded {
-  const _$BlocGalleryPopularStateLoaded(final List<ApiPhoto> photos)
-      : _photos = photos;
+  const _$BlocGalleryPopularStateLoaded(this.photos);
 
-  final List<ApiPhoto> _photos;
   @override
-  List<ApiPhoto> get photos {
-    if (_photos is EqualUnmodifiableListView) return _photos;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_photos);
-  }
+  final AppPhotos photos;
 
   @override
   String toString() {
@@ -254,12 +258,11 @@ class _$BlocGalleryPopularStateLoaded implements BlocGalleryPopularStateLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BlocGalleryPopularStateLoaded &&
-            const DeepCollectionEquality().equals(other._photos, _photos));
+            (identical(other.photos, photos) || other.photos == photos));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_photos));
+  int get hashCode => Object.hash(runtimeType, photos);
 
   @JsonKey(ignore: true)
   @override
@@ -272,8 +275,8 @@ class _$BlocGalleryPopularStateLoaded implements BlocGalleryPopularStateLoaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<ApiPhoto> photos) loaded,
-    required TResult Function(String message) error,
+    required TResult Function(AppPhotos photos) loaded,
+    required TResult Function(String description) error,
   }) {
     return loaded(photos);
   }
@@ -282,8 +285,8 @@ class _$BlocGalleryPopularStateLoaded implements BlocGalleryPopularStateLoaded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<ApiPhoto> photos)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function(AppPhotos photos)? loaded,
+    TResult? Function(String description)? error,
   }) {
     return loaded?.call(photos);
   }
@@ -292,8 +295,8 @@ class _$BlocGalleryPopularStateLoaded implements BlocGalleryPopularStateLoaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<ApiPhoto> photos)? loaded,
-    TResult Function(String message)? error,
+    TResult Function(AppPhotos photos)? loaded,
+    TResult Function(String description)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -339,10 +342,10 @@ class _$BlocGalleryPopularStateLoaded implements BlocGalleryPopularStateLoaded {
 
 abstract class BlocGalleryPopularStateLoaded
     implements BlocGalleryPopularState {
-  const factory BlocGalleryPopularStateLoaded(final List<ApiPhoto> photos) =
+  const factory BlocGalleryPopularStateLoaded(final AppPhotos photos) =
       _$BlocGalleryPopularStateLoaded;
 
-  List<ApiPhoto> get photos;
+  AppPhotos get photos;
   @JsonKey(ignore: true)
   _$$BlocGalleryPopularStateLoadedCopyWith<_$BlocGalleryPopularStateLoaded>
       get copyWith => throw _privateConstructorUsedError;
@@ -355,7 +358,7 @@ abstract class _$$BlocGalleryPopularStateErrorCopyWith<$Res> {
           $Res Function(_$BlocGalleryPopularStateError) then) =
       __$$BlocGalleryPopularStateErrorCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message});
+  $Res call({String description});
 }
 
 /// @nodoc
@@ -371,12 +374,12 @@ class __$$BlocGalleryPopularStateErrorCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = null,
+    Object? description = null,
   }) {
     return _then(_$BlocGalleryPopularStateError(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
+      null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -385,14 +388,14 @@ class __$$BlocGalleryPopularStateErrorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$BlocGalleryPopularStateError implements BlocGalleryPopularStateError {
-  const _$BlocGalleryPopularStateError(this.message);
+  const _$BlocGalleryPopularStateError(this.description);
 
   @override
-  final String message;
+  final String description;
 
   @override
   String toString() {
-    return 'BlocGalleryPopularState.error(message: $message)';
+    return 'BlocGalleryPopularState.error(description: $description)';
   }
 
   @override
@@ -400,11 +403,12 @@ class _$BlocGalleryPopularStateError implements BlocGalleryPopularStateError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BlocGalleryPopularStateError &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message);
+  int get hashCode => Object.hash(runtimeType, description);
 
   @JsonKey(ignore: true)
   @override
@@ -417,32 +421,32 @@ class _$BlocGalleryPopularStateError implements BlocGalleryPopularStateError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<ApiPhoto> photos) loaded,
-    required TResult Function(String message) error,
+    required TResult Function(AppPhotos photos) loaded,
+    required TResult Function(String description) error,
   }) {
-    return error(message);
+    return error(description);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<ApiPhoto> photos)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function(AppPhotos photos)? loaded,
+    TResult? Function(String description)? error,
   }) {
-    return error?.call(message);
+    return error?.call(description);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<ApiPhoto> photos)? loaded,
-    TResult Function(String message)? error,
+    TResult Function(AppPhotos photos)? loaded,
+    TResult Function(String description)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(message);
+      return error(description);
     }
     return orElse();
   }
@@ -483,10 +487,10 @@ class _$BlocGalleryPopularStateError implements BlocGalleryPopularStateError {
 }
 
 abstract class BlocGalleryPopularStateError implements BlocGalleryPopularState {
-  const factory BlocGalleryPopularStateError(final String message) =
+  const factory BlocGalleryPopularStateError(final String description) =
       _$BlocGalleryPopularStateError;
 
-  String get message;
+  String get description;
   @JsonKey(ignore: true)
   _$$BlocGalleryPopularStateErrorCopyWith<_$BlocGalleryPopularStateError>
       get copyWith => throw _privateConstructorUsedError;

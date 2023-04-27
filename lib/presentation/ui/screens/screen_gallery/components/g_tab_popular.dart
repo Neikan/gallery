@@ -15,7 +15,7 @@ class _GTabPopular extends StatelessWidget {
             tab: TabGalleryEnum.popular,
             photos: photos,
           ),
-          error: (message) => GErrorData(message: message),
+          error: (description) => GDataEmpty(message: description),
         ),
       ),
     );

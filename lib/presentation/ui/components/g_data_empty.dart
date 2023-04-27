@@ -9,12 +9,13 @@ import 'package:gallery_app/presentation/ui/components/g_svg.dart';
 import 'package:gallery_app/presentation/ui/styles/colors.dart' as colors;
 import 'package:gallery_app/presentation/ui/styles/sizes.dart';
 
-class GErrorData extends StatelessWidget {
-  final String message;
+class GDataEmpty extends StatelessWidget {
+  final String? message, description;
 
-  const GErrorData({
+  const GDataEmpty({
     super.key,
-    required this.message,
+    this.message,
+    this.description,
   });
 
   @override
@@ -33,7 +34,7 @@ class GErrorData extends StatelessWidget {
               horizontal: 16.0,
             ),
             child: Text(
-              labelsError[keyTitle]!,
+              message ?? labelsError[keyTitle]!,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 20,
@@ -42,21 +43,22 @@ class GErrorData extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
-              vertical: 10.0,
-            ),
-            child: Text(
-              message,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 12,
-                height: 1.67,
-                color: colors.gray,
+          if (description != null)
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 10.0,
+              ),
+              child: Text(
+                description!,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 12,
+                  height: 1.67,
+                  color: colors.gray,
+                ),
               ),
             ),
-          ),
         ],
       ),
     );

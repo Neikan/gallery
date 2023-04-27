@@ -1,6 +1,6 @@
 // Project imports:
 import 'package:gallery_app/data/consts/urls.dart';
-import 'package:gallery_app/data/models/api_photo/api_photo.dart';
+import 'package:gallery_app/data/models/app_photos/app_photos.dart';
 import 'package:gallery_app/data/repositories/repository_gallery/repository_gallery.dart';
 import 'package:gallery_app/data/services/service_http.dart';
 
@@ -8,10 +8,10 @@ class RepositoryGalleryImp extends RepositoryGallery {
   const RepositoryGalleryImp();
 
   @override
-  Future<List<ApiPhoto>> getData({
+  Future<AppPhotos?> getData({
     Map<String, dynamic>? queryParameters,
   }) async {
-    List<ApiPhoto> photos = [];
+    AppPhotos? photos;
 
     final response = await ServiceHttp.instance.get(
       urlPhotos,
@@ -19,9 +19,7 @@ class RepositoryGalleryImp extends RepositoryGallery {
     );
 
     if (response.statusCode == 200) {
-      photos = List<dynamic>.from(response.data['data'])
-          .map((photo) => ApiPhoto.fromJson(photo))
-          .toList();
+      photos = AppPhotos.fromJson(response.data);
     }
 
     return photos;

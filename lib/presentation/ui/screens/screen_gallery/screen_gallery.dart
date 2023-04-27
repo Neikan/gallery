@@ -6,11 +6,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
 import 'package:gallery_app/data/models/api_photo/api_photo.dart';
+import 'package:gallery_app/data/models/app_photos/app_photos.dart';
 import 'package:gallery_app/domain/blocs/bloc_gallery_popular/bloc_gallery_popular.dart';
-import 'package:gallery_app/domain/blocs/bloc_gallery_popular/bloc_gallery_popular_events.dart';
 import 'package:gallery_app/domain/blocs/bloc_gallery_popular/bloc_gallery_popular_state.dart';
 import 'package:gallery_app/domain/blocs/bloc_gallery_recent/bloc_gallery_recent.dart';
-import 'package:gallery_app/domain/blocs/bloc_gallery_recent/bloc_gallery_recent_events.dart';
 import 'package:gallery_app/domain/blocs/bloc_gallery_recent/bloc_gallery_recent_state.dart';
 import 'package:gallery_app/presentation/consts/enums.dart';
 import 'package:gallery_app/presentation/consts/keys.dart';
@@ -18,7 +17,7 @@ import 'package:gallery_app/presentation/consts/routes.dart';
 import 'package:gallery_app/presentation/consts/translations.dart';
 import 'package:gallery_app/presentation/ui/components/g_app_bar.dart';
 import 'package:gallery_app/presentation/ui/components/g_bottom_bar.dart';
-import 'package:gallery_app/presentation/ui/components/g_error_data.dart';
+import 'package:gallery_app/presentation/ui/components/g_data_empty.dart';
 import 'package:gallery_app/presentation/ui/components/g_image.dart';
 import 'package:gallery_app/presentation/ui/components/g_loader.dart';
 import 'package:gallery_app/presentation/ui/components/g_refresh.dart';

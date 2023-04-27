@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gallery_app/domain/blocs/bloc_photo/bloc_photo.dart';
 import 'package:gallery_app/domain/blocs/bloc_photo/bloc_photo_state.dart';
 import 'package:gallery_app/presentation/ui/components/g_app_bar.dart';
-import 'package:gallery_app/presentation/ui/components/g_error_data.dart';
+import 'package:gallery_app/presentation/ui/components/g_data_empty.dart';
 import 'package:gallery_app/presentation/ui/components/g_loader.dart';
 
 class ScreenPhoto extends StatelessWidget {
@@ -33,7 +33,7 @@ class ScreenPhoto extends StatelessWidget {
                 children: const [],
               ),
             ),
-            error: (message) => GErrorData(message: message),
+            error: (description) => GDataEmpty(description: description),
           ),
         ),
       ),

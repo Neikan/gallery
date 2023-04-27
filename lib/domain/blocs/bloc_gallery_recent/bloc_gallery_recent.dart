@@ -2,9 +2,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
+import 'package:gallery_app/data/models/app_photos/app_photos.dart';
 import 'package:gallery_app/data/repositories/repository_gallery/repository_gallery.dart';
-import 'package:gallery_app/domain/blocs/bloc_gallery_recent/bloc_gallery_recent_events.dart';
 import 'package:gallery_app/domain/blocs/bloc_gallery_recent/bloc_gallery_recent_state.dart';
+import 'package:gallery_app/domain/utils/throttle.dart';
+
+part 'bloc_gallery_recent_events.dart';
 
 class BlocGalleryRecent
     extends Bloc<BlocGalleryRecentEvent, BlocGalleryRecentState> {
@@ -12,21 +15,65 @@ class BlocGalleryRecent
 
   BlocGalleryRecent({required this.repo})
       : super(const BlocGalleryRecentState.loading()) {
-    on<BlocGalleryRecentEventInit>(_init);
+    on<BlocGalleryRecentEventInit>(
+      _handleInit,
+      transformer: throttleDroppable(throttleDuration),
+    );
+    on<BlocGalleryRecentEventNext>(
+      _handleNext,
+      transformer: throttleDroppable(throttleDuration),
+    );
   }
 
-  Future<void> _init(
+  int _page = 1;
+  AppPhotos _photos = const AppPhotos(
+    countOfPages: 0,
+    data: [],
+    totalItems: 0,
+  );
+
+  Future<void> _handleInit(
     BlocGalleryRecentEventInit event,
     Emitter<BlocGalleryRecentState> emit,
   ) async {
     emit(const BlocGalleryRecentState.loading());
 
-    try {
-      final photos = await repo.getData(
-        queryParameters: {'new': true},
-      );
+    await _getData(emit);
+  }
 
-      emit(BlocGalleryRecentState.loaded(photos));
+  Future<void> _handleNext(
+    BlocGalleryRecentEventNext event,
+    Emitter<BlocGalleryRecentState> emit,
+  ) async {
+    if (_photos.countOfPages < _page) return;
+
+    await _getData(emit);
+  }
+
+  Future<void> _getData(Emitter<BlocGalleryRecentState> emit) async {
+    try {
+      final queryParameters = <String, dynamic>{
+        'new': true,
+        'limit': _photos.itemsPerPage,
+        'page': _page,
+      };
+
+      final photos = await repo.getData(queryParameters: queryParameters);
+
+      if (photos != null) {
+        _photos = _photos.copyWith(
+          totalItems: photos.totalItems,
+          data: [
+            ..._photos.data,
+            ...photos.data,
+          ],
+          countOfPages: photos.countOfPages,
+        );
+
+        _page++;
+      }
+
+      emit(BlocGalleryRecentState.loaded(_photos));
     } catch (e) {
       emit(BlocGalleryRecentState.error(e.toString()));
     }

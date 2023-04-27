@@ -9,6 +9,7 @@ final labelsGallery = <String, String>{
   keyFieldSearch: 'Search',
   TabGalleryEnum.recent.name: 'New',
   TabGalleryEnum.popular.name: 'Popular',
+  keyContent: 'No photos yet',
 };
 
 final labelsBottomBar = <String, String>{
