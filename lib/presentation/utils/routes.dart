@@ -8,8 +8,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gallery_app/data/models/api_photo/api_photo.dart';
 import 'package:gallery_app/data/repositories/repository_gallery/repository_gallery_imp.dart';
 import 'package:gallery_app/data/repositories/repository_photo/repository_photo_imp.dart';
-import 'package:gallery_app/domain/blocs/bloc_gallery/bloc_gallery.dart';
-import 'package:gallery_app/domain/blocs/bloc_gallery/bloc_gallery_events.dart';
+import 'package:gallery_app/domain/blocs/bloc_gallery_popular/bloc_gallery_popular.dart';
+import 'package:gallery_app/domain/blocs/bloc_gallery_popular/bloc_gallery_popular_events.dart';
+import 'package:gallery_app/domain/blocs/bloc_gallery_recent/bloc_gallery_recent.dart';
+import 'package:gallery_app/domain/blocs/bloc_gallery_recent/bloc_gallery_recent_events.dart';
 import 'package:gallery_app/domain/blocs/bloc_photo/bloc_photo.dart';
 import 'package:gallery_app/domain/blocs/bloc_photo/bloc_photo_events.dart';
 import 'package:gallery_app/presentation/consts/keys.dart';
@@ -23,9 +25,19 @@ Route<dynamic> generateRoute(RouteSettings settings) => MaterialPageRoute(
       builder: (BuildContext context) {
         switch (settings.name) {
           case routeGallery:
-            return BlocProvider<BlocGallery>(
-              create: (_) => BlocGallery(repo: const RepositoryGalleryImp())
-                ..add(BlocGalleryEventInit()),
+            const repo = RepositoryGalleryImp();
+
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider<BlocGalleryRecent>(
+                  create: (_) => BlocGalleryRecent(repo: repo)
+                    ..add(BlocGalleryRecentEventInit()),
+                ),
+                BlocProvider<BlocGalleryPopular>(
+                  create: (_) => BlocGalleryPopular(repo: repo)
+                    ..add(BlocGalleryPopularEventInit()),
+                ),
+              ],
               child: const ScreenGallery(),
             );
 

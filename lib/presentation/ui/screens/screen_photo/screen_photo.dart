@@ -23,16 +23,18 @@ class ScreenPhoto extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const UiAppBar(),
-      body: BlocBuilder<BlocPhoto, BlocPhotoState>(
-        builder: (_, state) => state.when(
-          loading: () => const GLoader(),
-          loaded: (photo) => SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [],
+      body: SafeArea(
+        child: BlocBuilder<BlocPhoto, BlocPhotoState>(
+          builder: (_, state) => state.when(
+            loading: () => const GLoader(),
+            loaded: (photo) => SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [],
+              ),
             ),
+            error: (message) => GErrorData(message: message),
           ),
-          error: (message) => GErrorData(message: message),
         ),
       ),
     );
