@@ -53,4 +53,7 @@ flutter packages pub run build_runner build --delete-conflicting-outputs
 <br />
 
 # Примечания
-1. В методе GET: https://gallery.prod1.webant.ru/api/photos в модели данных присутствует ошибка для параметра `user` - он может быть `nullable`. Либо это ошибка текущего набора данных на сервере.
+1. В методе GET: https://gallery.prod1.webant.ru/api/photos в модели данных присутствует ошибка для параметров:
+    - `user` - он может быть `nullable`.
+    - `image` - он может быть `nullable`.
+    Либо это ошибка текущего набора данных на сервере.

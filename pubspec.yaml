@@ -19,6 +19,7 @@ dependencies:
   freezed: ^2.3.2
   freezed_annotation: ^2.2.0
   json_annotation: ^4.7.0
+  path_provider: ^2.0.14
   stream_transform: ^2.0.0
 
 dev_dependencies:
@@ -34,3 +35,10 @@ flutter:
   assets:
     - assets/images/
     - assets/images/icons/
+
+  fonts:
+    - family: SF Pro Display
+      fonts:
+        - asset: fonts/SF-Pro-Display-Bold.otf
+        - asset: fonts/SF-Pro-Display-Regular.otf
+          style: normal
