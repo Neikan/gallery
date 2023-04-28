@@ -22,7 +22,6 @@ final defaultTheme = ThemeData(
   primaryColor: colors.brand,
   primarySwatch: colors.materialWhite,
   // primaryTextTheme: _primaryTextTheme,
-  // progressIndicatorTheme: _progressIndicatorTheme,
   tabBarTheme: _tabBarTheme,
   textButtonTheme: _textButtonTheme,
   // textTheme: _textTheme,
@@ -192,9 +191,7 @@ final _textButtonTheme = TextButtonThemeData(
 
 // --------------------------------------------------------------------- //
 
-// const _progressIndicatorTheme = ProgressIndicatorThemeData(
-//   color: colors.gray,
-// );
+
 
 // final _iconButtonTheme = IconButtonThemeData(
 //   style: ButtonStyle(

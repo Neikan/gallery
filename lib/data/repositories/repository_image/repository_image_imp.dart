@@ -14,8 +14,8 @@ import 'package:gallery_app/data/services/service_http.dart';
 
 const String _directoryImages = 'images';
 
-class RepositoryMediaObjectImp extends RepositoryMediaObject {
-  RepositoryMediaObjectImp();
+class RepositoryImageImp extends RepositoryImage {
+  RepositoryImageImp();
 
   late Directory _directory;
 

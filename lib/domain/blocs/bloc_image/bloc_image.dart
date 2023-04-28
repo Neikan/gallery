@@ -9,11 +9,10 @@ import 'package:gallery_app/domain/blocs/bloc_image/bloc_image_state.dart';
 
 part 'bloc_image_events.dart';
 
-class BlocGalleryPhoto extends Bloc<BlocGalleryPhotoEvent, BlocImageState> {
-  final RepositoryMediaObject repo;
+class BlocImage extends Bloc<BlocGalleryPhotoEvent, BlocImageState> {
+  final RepositoryImage repo;
 
-  BlocGalleryPhoto({required this.repo})
-      : super(const BlocImageState.loading()) {
+  BlocImage({required this.repo}) : super(const BlocImageState.loading()) {
     on<BlocGalleryPhotoEventInit>(_handleInit);
   }
 

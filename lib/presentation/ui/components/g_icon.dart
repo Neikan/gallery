@@ -16,7 +16,7 @@ class GIcon extends StatelessWidget {
     super.key,
     this.color = colors.gray,
     this.name,
-    this.padding = const EdgeInsets.only(bottom: 5.0),
+    this.padding,
     this.semanticsLabel,
     this.size = 22.0,
   });

@@ -38,6 +38,8 @@ class GBottomBar extends StatelessWidget {
       }
     }
 
+    const padding = EdgeInsets.only(bottom: 5.0);
+
     return SizedBox(
       height: heightBottomBar,
       child: BottomNavigationBar(
@@ -47,12 +49,14 @@ class GBottomBar extends StatelessWidget {
             icon: GIcon(
               name: iconsBottomBar[routeGallery],
               color: isGallery ? colors.brand : colors.gray,
+              padding: padding,
             ),
             label: labelsBottomBar[routeGallery],
           ),
           BottomNavigationBarItem(
             icon: GIcon(
               name: iconsBottomBar[keyButtonAddPhoto],
+              padding: padding,
             ),
             label: labelsBottomBar[keyButtonAddPhoto],
           ),
@@ -60,6 +64,7 @@ class GBottomBar extends StatelessWidget {
             icon: GIcon(
               name: iconsBottomBar[routeProfile],
               color: isProfile ? colors.brand : colors.gray,
+              padding: padding,
             ),
             label: labelsBottomBar[routeProfile],
           ),

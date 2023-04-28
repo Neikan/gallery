@@ -10,13 +10,13 @@ class _GGridCardPhoto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => BlocGalleryPhoto(repo: RepositoryMediaObjectImp())
+      create: (_) => BlocImage(repo: RepositoryImageImp())
         ..add(
           (BlocGalleryPhotoEventInit(image: photo.image)),
         ),
-      child: BlocBuilder<BlocGalleryPhoto, BlocImageState>(
+      child: BlocBuilder<BlocImage, BlocImageState>(
         builder: (_, state) => state.when(
-          loading: () => const GLoader(),
+          loading: () => const GLoader(color: Colors.white),
           loaded: (filename) => _GImageData(filename: filename),
           error: () => _GImageError(),
         ),
