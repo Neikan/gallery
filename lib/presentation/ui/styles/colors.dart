@@ -5,8 +5,10 @@ const _white = 0xffffffff;
 
 const Color brand = Color(0xFFED5992);
 const Color blue = Color(0xFF2F1767);
+
 const Color gray = Color(0xFF8C8C8C);
 const Color grayLight = Color(0xFFC4C4C4);
+const Color grayDark = Color(0xFF4A4A4A);
 
 const _swatch = <int, Color>{
   50: Color.fromRGBO(158, 158, 158, .1),

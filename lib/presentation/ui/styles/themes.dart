@@ -13,6 +13,7 @@ final defaultTheme = ThemeData(
   appBarTheme: _appBarTitleTheme,
   bottomNavigationBarTheme: _bottomNavigationBarTheme,
   cardTheme: _cardTheme,
+  chipTheme: _chipTheme,
   dialogTheme: _dialogTheme,
   dividerTheme: _dividerTheme,
   elevatedButtonTheme: _elevatedButtonThemeDefault,
@@ -65,6 +66,23 @@ const _cardTheme = CardTheme(
   margin: EdgeInsets.all(0.0),
   shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.all(borderRaduisSmall),
+  ),
+);
+
+final _chipTheme = ChipThemeData(
+  backgroundColor: colors.brand,
+  labelStyle: const TextStyle(
+    color: Colors.white,
+    overflow: TextOverflow.ellipsis,
+  ),
+  padding: EdgeInsets.zero,
+  labelPadding: const EdgeInsets.symmetric(
+    horizontal: 20.0,
+  ),
+  elevation: 0.0,
+  showCheckmark: false,
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(16.0),
   ),
 );
 

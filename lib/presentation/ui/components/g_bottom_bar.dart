@@ -19,10 +19,11 @@ class GBottomBar extends StatelessWidget {
     final currentRoute = ModalRoute.of(context)!.settings.name;
 
     final isGallery = currentRoute == routeGallery;
+    final isPhoto = currentRoute == routePhoto;
     final isProfile = currentRoute == routeProfile;
 
     void handleTap(int index) {
-      if (index == 0 && !isGallery) {
+      if (index == 0 && !isGallery && !isPhoto) {
         Navigator.pushNamed(context, routeGallery);
       }
 
@@ -48,7 +49,7 @@ class GBottomBar extends StatelessWidget {
           BottomNavigationBarItem(
             icon: GIcon(
               name: iconsBottomBar[routeGallery],
-              color: isGallery ? colors.brand : colors.gray,
+              color: isGallery || isPhoto ? colors.brand : colors.gray,
               padding: padding,
             ),
             label: labelsBottomBar[routeGallery],

@@ -46,7 +46,7 @@ Route<dynamic> generateRoute(RouteSettings settings) => MaterialPageRoute(
             return BlocProvider<BlocPhoto>(
               create: (_) => BlocPhoto(repo: const RepositoryPhotoImp())
                 ..add(BlocPhotoEventInit(photo.id)),
-              child: ScreenPhoto(title: photo.name),
+              child: ScreenPhoto(id: photo.id),
             );
 
           default:
