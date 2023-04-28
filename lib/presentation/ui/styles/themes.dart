@@ -16,15 +16,12 @@ final defaultTheme = ThemeData(
   dialogTheme: _dialogTheme,
   dividerTheme: _dividerTheme,
   elevatedButtonTheme: _elevatedButtonThemeDefault,
-  // iconButtonTheme: _iconButtonTheme,
   inputDecorationTheme: _inputDecorationTheme,
   listTileTheme: _listTileTheme,
   primaryColor: colors.brand,
   primarySwatch: colors.materialWhite,
-  // primaryTextTheme: _primaryTextTheme,
   tabBarTheme: _tabBarTheme,
   textButtonTheme: _textButtonTheme,
-  // textTheme: _textTheme,
   visualDensity: VisualDensity.adaptivePlatformDensity,
 );
 
@@ -188,41 +185,3 @@ final _textButtonTheme = TextButtonThemeData(
     ),
   ),
 );
-
-// --------------------------------------------------------------------- //
-
-
-
-// final _iconButtonTheme = IconButtonThemeData(
-//   style: ButtonStyle(
-//     iconColor: MaterialStateProperty.all<Color?>(Colors.white),
-//   ),
-// );
-
-// const _textTheme = TextTheme(
-//   bodyLarge: TextStyle(
-//     fontSize: 17.0,
-//     height: 1.0,
-//   ),
-//   bodyMedium: TextStyle(
-//     fontSize: 15.0,
-//     height: 1.1,
-//   ),
-//   bodySmall: TextStyle(
-//     fontSize: 15.0,
-//     height: 1.0,
-//   ),
-// );
-
-// const _primaryTextTheme = TextTheme(
-//   titleSmall: TextStyle(
-//     fontSize: 10.0,
-//   ),
-//   titleMedium: TextStyle(
-//     fontSize: 12.0,
-//   ),
-//   headlineSmall: TextStyle(
-//     fontSize: 20.0,
-//     fontWeight: FontWeight.w700,
-//   ),
-// );

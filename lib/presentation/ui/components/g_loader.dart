@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 // Project imports:
 import 'package:gallery_app/presentation/ui/components/g_icon.dart';
 import 'package:gallery_app/presentation/ui/styles/colors.dart' as colors;
+import 'package:gallery_app/presentation/ui/styles/sizes.dart';
 
 class GLoader extends StatefulWidget {
   final Color? color;
@@ -17,7 +18,7 @@ class GLoader extends StatefulWidget {
     super.key,
     this.color,
     this.padding,
-    this.size,
+    this.size = sizeGLoader,
   });
 
   @override

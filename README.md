@@ -57,3 +57,5 @@ flutter packages pub run build_runner build --delete-conflicting-outputs
     - `user` - он может быть `nullable`.
     - `image` - он может быть `nullable`.
     Либо это ошибка текущего набора данных на сервере.
+
+2. В макете путаница со шрифтами: где-то `SF Pro Display`, где-то - `Roboto`.
