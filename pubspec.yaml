@@ -1,0 +1,46 @@
+name: gallery_app
+description: Simple Gallery app.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+
+dependencies:
+  bloc: ^8.1.0
+  bloc_concurrency: ^0.2.0
+  cupertino_icons: ^1.0.2
+  custom_refresh_indicator: ^2.0.1
+  dio: ^4.0.6
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.1
+  flutter_svg: ^1.0.1
+  freezed: ^2.3.2
+  freezed_annotation: ^2.2.0
+  intl: ^0.18.1
+  json_annotation: ^4.7.0
+  path_provider: ^2.0.14
+  stream_transform: ^2.0.0
+
+dev_dependencies:
+  build_runner: ^2.1.15
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  import_sorter: ^4.6.0
+  json_serializable: ^6.1.4
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/images/icons/
+
+  fonts:
+    - family: SF Pro Display
+      fonts:
+        - asset: fonts/SF-Pro-Display-Bold.otf
+        - asset: fonts/SF-Pro-Display-Regular.otf
+          style: normal
