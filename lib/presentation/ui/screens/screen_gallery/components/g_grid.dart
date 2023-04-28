@@ -37,12 +37,6 @@ class _GGridState extends State<_GGrid> {
     }
 
     final currentCount = widget.photos.data.length;
-    final totalItems = widget.photos.totalItems;
-
-    // final itemCount =
-    //     totalItems <= currentCount ? currentCount : currentCount + 1;
-
-    final itemCount = totalItems <= currentCount ? currentCount : currentCount;
 
     return GRefresh(
       onRefresh: widget.onRefresh,
@@ -64,19 +58,11 @@ class _GGridState extends State<_GGrid> {
                 mainAxisSpacing: 10.0,
                 childAspectRatio: 2.0,
               ),
-              itemCount: itemCount,
+              itemCount: currentCount,
               itemBuilder: (_, index) {
-                // lastIndex = index;
-
                 return _GGridCard(
                   photo: widget.photos.data[index],
                 );
-
-                // return index >= currentCount
-                //     ? const GLoader()
-                //     : _GGridCard(
-                //         photo: widget.photos.data[index],
-                //       );
               },
               controller: _scrollController,
             ),

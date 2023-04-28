@@ -24,49 +24,43 @@ class _GPhoto extends StatelessWidget {
     return GRefresh(
       onRefresh: onRefresh,
       child: LayoutBuilder(
-        builder: (_, constraints) => Center(
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(
-              parent: AlwaysScrollableScrollPhysics(),
-            ),
-            child: SizedBox(
-              height: constraints.maxHeight,
-              width: constraints.maxWidth,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16.0,
-                      vertical: 20.0,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const _GPhotoTitle(
-                            title: 'Get better - unused exploration'),
-                        if (isUser)
-                          _GPhotoUser(user: photo.user!, padding: paddingUser),
-                        if (isDescription)
-                          _GPhotoDescription(
-                            description: photo.description,
-                            padding: paddingDescription,
-                          ),
-                        const _GPhotoTags(
-                          tags: [
-                            'Animals',
-                            'tag2928239203023923029302238',
-                          ],
-                        ),
-                        _GPhotoDate(date: photo.dateCreate),
-                        const _GPhotoViews(views: 1000),
+        builder: (_, constraints) => SingleChildScrollView(
+          physics: const BouncingScrollPhysics(
+            parent: AlwaysScrollableScrollPhysics(),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _GGridCardPhoto(photo: photo),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 20.0,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const _GPhotoTitle(
+                        title: 'Get better - unused exploration'),
+                    if (isUser)
+                      _GPhotoUser(user: photo.user!, padding: paddingUser),
+                    if (isDescription)
+                      _GPhotoDescription(
+                        description: photo.description,
+                        padding: paddingDescription,
+                      ),
+                    const _GPhotoTags(
+                      tags: [
+                        'Animals',
+                        'tag2928239203023923029302238',
                       ],
                     ),
-                  ),
-                ],
+                    _GPhotoDate(date: photo.dateCreate),
+                    const _GPhotoViews(views: 1000),
+                  ],
+                ),
               ),
-            ),
+            ],
           ),
         ),
       ),
