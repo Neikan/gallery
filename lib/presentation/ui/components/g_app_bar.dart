@@ -6,10 +6,9 @@ import 'package:gallery_app/presentation/ui/components/g_divider.dart';
 import 'package:gallery_app/presentation/ui/styles/sizes.dart';
 
 class UiAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final Widget? title;
-  final Widget? leading;
-  final List<Widget>? actions;
-  final List<Widget>? tabs;
+  final Widget? title, leading;
+  final List<Widget>? actions, tabs;
+  final bool? withDivider;
 
   const UiAppBar({
     super.key,
@@ -17,6 +16,7 @@ class UiAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.leading,
     this.actions,
     this.tabs,
+    this.withDivider,
   });
 
   @override
@@ -42,7 +42,9 @@ class UiAppBar extends StatelessWidget implements PreferredSizeWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: TabBar(tabs: tabs!),
             )
-          : const GDivider(),
+          : withDivider == true
+              ? const GDivider()
+              : const SizedBox(),
     );
   }
 }

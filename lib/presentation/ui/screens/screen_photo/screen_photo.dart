@@ -42,7 +42,7 @@ class ScreenPhoto extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: const UiAppBar(),
+      appBar: const UiAppBar(withDivider: false),
       body: SafeArea(
         child: BlocBuilder<BlocPhoto, BlocPhotoState>(
           builder: (_, state) => state.when(
