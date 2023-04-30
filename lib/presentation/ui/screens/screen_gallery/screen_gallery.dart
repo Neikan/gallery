@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 // Project imports:
 import 'package:gallery_app/data/models/api_photo/api_photo.dart';
@@ -51,7 +52,7 @@ class ScreenGallery extends StatelessWidget {
             padding: const EdgeInsets.only(top: 10.0),
             labelText: labelsGallery[keyFieldSearch]!,
             suffixWidget: IconButton(
-              // ToDo заделка на будущее для выполнения поискового запроса
+              // ToDo задел на будущее для выполнения поискового запроса
               onPressed: () {},
               icon: const Icon(Icons.search),
             ),

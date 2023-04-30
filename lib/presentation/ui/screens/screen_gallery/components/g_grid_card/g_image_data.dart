@@ -11,9 +11,11 @@ class _GImageData extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: const BorderRadius.all(borderRaduisSmall),
-      child: Image.file(
-        file,
+      child: FadeInImage(
+        placeholder: MemoryImage(kTransparentImage),
+        image: FileImage(file),
         fit: BoxFit.cover,
+        imageErrorBuilder: (_, __, ___) => _GImageError(),
       ),
     );
   }

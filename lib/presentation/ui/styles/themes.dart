@@ -61,7 +61,7 @@ const _bottomNavigationBarTheme = BottomNavigationBarThemeData(
 );
 
 const _cardTheme = CardTheme(
-  color: colors.grayLight,
+  color: Colors.white,
   elevation: 0.0,
   margin: EdgeInsets.all(0.0),
   shape: RoundedRectangleBorder(
