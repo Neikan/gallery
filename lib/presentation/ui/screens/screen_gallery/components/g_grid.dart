@@ -18,8 +18,6 @@ class _GGrid extends StatefulWidget {
 class _GGridState extends State<_GGrid> {
   final ScrollController _scrollController = ScrollController();
 
-  int? lastIndex;
-
   @override
   void initState() {
     super.initState();
@@ -40,34 +38,28 @@ class _GGridState extends State<_GGrid> {
 
     return GRefresh(
       onRefresh: widget.onRefresh,
-      child: Column(
-        children: [
-          Expanded(
-            child: GridView.builder(
-              key: PageStorageKey(widget.tab.name),
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16.0,
-                vertical: 30.0,
-              ),
-              physics: const BouncingScrollPhysics(
-                parent: AlwaysScrollableScrollPhysics(),
-              ),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 10.0,
-                mainAxisSpacing: 10.0,
-                childAspectRatio: 2.0,
-              ),
-              itemCount: currentCount,
-              itemBuilder: (_, index) {
-                return _GGridCard(
-                  photo: widget.photos.data[index],
-                );
-              },
-              controller: _scrollController,
-            ),
-          ),
-        ],
+      child: GridView.builder(
+        key: PageStorageKey(widget.tab.name),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16.0,
+          vertical: 30.0,
+        ),
+        physics: const BouncingScrollPhysics(
+          parent: AlwaysScrollableScrollPhysics(),
+        ),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 10.0,
+          mainAxisSpacing: 10.0,
+          childAspectRatio: 2.0,
+        ),
+        itemCount: currentCount,
+        itemBuilder: (_, index) {
+          return _GGridCard(
+            photo: widget.photos.data[index],
+          );
+        },
+        controller: _scrollController,
       ),
     );
   }
