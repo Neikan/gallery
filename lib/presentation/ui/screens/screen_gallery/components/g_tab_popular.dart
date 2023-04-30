@@ -8,18 +8,21 @@ class _GTabPopular extends StatelessWidget {
           .add(BlocGalleryPopularEventInit());
     }
 
-    return BlocBuilder<BlocGalleryPopular, BlocGalleryPopularState>(
-      builder: (_, state) => state.when(
-        loading: () => const GLoader(),
-        loaded: (photos) => _GGrid(
+    Widget buildGrid(AppPhotos photos) => _GGrid(
           onRefresh: handleRefresh,
           photos: photos,
           tab: TabGalleryEnum.popular,
-        ),
-        error: (description) => GDataEmpty(
+        );
+
+    return BlocBuilder<BlocGalleryPopular, BlocGalleryState>(
+      builder: (_, state) => state.when(
+        loading: () => const GLoader(),
+        loaded: buildGrid,
+        errorStart: (description) => GDataEmpty(
           onRefresh: handleRefresh,
           description: description,
         ),
+        errorNext: (photos, _) => buildGrid(photos),
       ),
     );
   }

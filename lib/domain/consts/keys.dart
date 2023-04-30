@@ -1,4 +1,4 @@
-const String keyNew = 'new';
+const String keyRecent = 'new';
 const String keyPopular = 'popular';
 
 const String keyLimit = 'limit';
