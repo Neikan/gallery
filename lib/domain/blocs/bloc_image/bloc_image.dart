@@ -20,14 +20,12 @@ class BlocImage extends Bloc<BlocGalleryPhotoEvent, BlocImageState> {
     BlocGalleryPhotoEventInit event,
     Emitter<BlocImageState> emit,
   ) async {
-    await repo.init();
-
     try {
-      final filename = await repo.getData(event.image);
+      final file = await repo.getData(event.image);
 
       emit(
-        filename.isNotEmpty
-            ? BlocImageState.loaded(filename)
+        file != null
+            ? BlocImageState.loaded(file)
             : const BlocImageState.error(),
       );
     } on DioError catch (_) {

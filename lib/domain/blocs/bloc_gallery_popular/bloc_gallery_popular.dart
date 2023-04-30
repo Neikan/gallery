@@ -62,8 +62,7 @@ class BlocGalleryPopular
     BlocGalleryPopularEventNext event,
     Emitter<BlocGalleryState> emit,
   ) async {
-    if (_photosState.countOfPages < _photosState.currentPage &&
-        _photosState.isLoadingNextData) return;
+    if (_photosState.countOfPages < _photosState.currentPage) return;
 
     _photosState = _photosState.copyWith(
       isLoadingNextData: true,
