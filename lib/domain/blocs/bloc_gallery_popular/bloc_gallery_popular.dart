@@ -45,8 +45,6 @@ class BlocGalleryPopular
 
     _reset();
 
-    print(_photos.data.length);
-
     await _getData(emit);
   }
 
