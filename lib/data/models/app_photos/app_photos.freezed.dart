@@ -22,8 +22,10 @@ AppPhotos _$AppPhotosFromJson(Map<String, dynamic> json) {
 mixin _$AppPhotos {
   int get countOfPages => throw _privateConstructorUsedError;
   List<ApiPhoto> get data => throw _privateConstructorUsedError;
-  int get itemsPerPage => throw _privateConstructorUsedError;
   int get totalItems => throw _privateConstructorUsedError;
+  int get itemsPerPage => throw _privateConstructorUsedError;
+  int get currentPage => throw _privateConstructorUsedError;
+  bool get isLoadingNextData => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,8 +41,10 @@ abstract class $AppPhotosCopyWith<$Res> {
   $Res call(
       {int countOfPages,
       List<ApiPhoto> data,
+      int totalItems,
       int itemsPerPage,
-      int totalItems});
+      int currentPage,
+      bool isLoadingNextData});
 }
 
 /// @nodoc
@@ -58,8 +62,10 @@ class _$AppPhotosCopyWithImpl<$Res, $Val extends AppPhotos>
   $Res call({
     Object? countOfPages = null,
     Object? data = null,
-    Object? itemsPerPage = null,
     Object? totalItems = null,
+    Object? itemsPerPage = null,
+    Object? currentPage = null,
+    Object? isLoadingNextData = null,
   }) {
     return _then(_value.copyWith(
       countOfPages: null == countOfPages
@@ -70,14 +76,22 @@ class _$AppPhotosCopyWithImpl<$Res, $Val extends AppPhotos>
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as List<ApiPhoto>,
-      itemsPerPage: null == itemsPerPage
-          ? _value.itemsPerPage
-          : itemsPerPage // ignore: cast_nullable_to_non_nullable
-              as int,
       totalItems: null == totalItems
           ? _value.totalItems
           : totalItems // ignore: cast_nullable_to_non_nullable
               as int,
+      itemsPerPage: null == itemsPerPage
+          ? _value.itemsPerPage
+          : itemsPerPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      isLoadingNextData: null == isLoadingNextData
+          ? _value.isLoadingNextData
+          : isLoadingNextData // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -92,8 +106,10 @@ abstract class _$$_AppPhotosCopyWith<$Res> implements $AppPhotosCopyWith<$Res> {
   $Res call(
       {int countOfPages,
       List<ApiPhoto> data,
+      int totalItems,
       int itemsPerPage,
-      int totalItems});
+      int currentPage,
+      bool isLoadingNextData});
 }
 
 /// @nodoc
@@ -109,8 +125,10 @@ class __$$_AppPhotosCopyWithImpl<$Res>
   $Res call({
     Object? countOfPages = null,
     Object? data = null,
-    Object? itemsPerPage = null,
     Object? totalItems = null,
+    Object? itemsPerPage = null,
+    Object? currentPage = null,
+    Object? isLoadingNextData = null,
   }) {
     return _then(_$_AppPhotos(
       countOfPages: null == countOfPages
@@ -121,14 +139,22 @@ class __$$_AppPhotosCopyWithImpl<$Res>
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<ApiPhoto>,
-      itemsPerPage: null == itemsPerPage
-          ? _value.itemsPerPage
-          : itemsPerPage // ignore: cast_nullable_to_non_nullable
-              as int,
       totalItems: null == totalItems
           ? _value.totalItems
           : totalItems // ignore: cast_nullable_to_non_nullable
               as int,
+      itemsPerPage: null == itemsPerPage
+          ? _value.itemsPerPage
+          : itemsPerPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      isLoadingNextData: null == isLoadingNextData
+          ? _value.isLoadingNextData
+          : isLoadingNextData // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -139,8 +165,10 @@ class _$_AppPhotos implements _AppPhotos {
   const _$_AppPhotos(
       {required this.countOfPages,
       required final List<ApiPhoto> data,
+      required this.totalItems,
       this.itemsPerPage = 10,
-      required this.totalItems})
+      this.currentPage = 1,
+      this.isLoadingNextData = false})
       : _data = data;
 
   factory _$_AppPhotos.fromJson(Map<String, dynamic> json) =>
@@ -157,14 +185,20 @@ class _$_AppPhotos implements _AppPhotos {
   }
 
   @override
+  final int totalItems;
+  @override
   @JsonKey()
   final int itemsPerPage;
   @override
-  final int totalItems;
+  @JsonKey()
+  final int currentPage;
+  @override
+  @JsonKey()
+  final bool isLoadingNextData;
 
   @override
   String toString() {
-    return 'AppPhotos(countOfPages: $countOfPages, data: $data, itemsPerPage: $itemsPerPage, totalItems: $totalItems)';
+    return 'AppPhotos(countOfPages: $countOfPages, data: $data, totalItems: $totalItems, itemsPerPage: $itemsPerPage, currentPage: $currentPage, isLoadingNextData: $isLoadingNextData)';
   }
 
   @override
@@ -175,16 +209,26 @@ class _$_AppPhotos implements _AppPhotos {
             (identical(other.countOfPages, countOfPages) ||
                 other.countOfPages == countOfPages) &&
             const DeepCollectionEquality().equals(other._data, _data) &&
+            (identical(other.totalItems, totalItems) ||
+                other.totalItems == totalItems) &&
             (identical(other.itemsPerPage, itemsPerPage) ||
                 other.itemsPerPage == itemsPerPage) &&
-            (identical(other.totalItems, totalItems) ||
-                other.totalItems == totalItems));
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage) &&
+            (identical(other.isLoadingNextData, isLoadingNextData) ||
+                other.isLoadingNextData == isLoadingNextData));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, countOfPages,
-      const DeepCollectionEquality().hash(_data), itemsPerPage, totalItems);
+  int get hashCode => Object.hash(
+      runtimeType,
+      countOfPages,
+      const DeepCollectionEquality().hash(_data),
+      totalItems,
+      itemsPerPage,
+      currentPage,
+      isLoadingNextData);
 
   @JsonKey(ignore: true)
   @override
@@ -204,8 +248,10 @@ abstract class _AppPhotos implements AppPhotos {
   const factory _AppPhotos(
       {required final int countOfPages,
       required final List<ApiPhoto> data,
+      required final int totalItems,
       final int itemsPerPage,
-      required final int totalItems}) = _$_AppPhotos;
+      final int currentPage,
+      final bool isLoadingNextData}) = _$_AppPhotos;
 
   factory _AppPhotos.fromJson(Map<String, dynamic> json) =
       _$_AppPhotos.fromJson;
@@ -215,9 +261,13 @@ abstract class _AppPhotos implements AppPhotos {
   @override
   List<ApiPhoto> get data;
   @override
+  int get totalItems;
+  @override
   int get itemsPerPage;
   @override
-  int get totalItems;
+  int get currentPage;
+  @override
+  bool get isLoadingNextData;
   @override
   @JsonKey(ignore: true)
   _$$_AppPhotosCopyWith<_$_AppPhotos> get copyWith =>

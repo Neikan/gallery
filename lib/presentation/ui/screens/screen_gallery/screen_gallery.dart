@@ -27,6 +27,7 @@ import 'package:gallery_app/presentation/ui/components/g_data_empty.dart';
 import 'package:gallery_app/presentation/ui/components/g_loader.dart';
 import 'package:gallery_app/presentation/ui/components/g_refresh.dart';
 import 'package:gallery_app/presentation/ui/components/g_text_field.dart';
+import 'package:gallery_app/presentation/ui/styles/colors.dart' as colors;
 import 'package:gallery_app/presentation/ui/styles/decorations.dart';
 import 'package:gallery_app/presentation/ui/styles/sizes.dart';
 
@@ -51,6 +52,7 @@ class ScreenGallery extends StatelessWidget {
             padding: const EdgeInsets.only(top: 10.0),
             labelText: labelsGallery[keyFieldSearch]!,
             suffixWidget: IconButton(
+              // ToDo заделка на будущее для выполнения поискового запроса
               onPressed: () {},
               icon: const Icon(Icons.search),
             ),

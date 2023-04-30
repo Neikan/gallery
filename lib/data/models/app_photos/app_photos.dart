@@ -12,8 +12,10 @@ class AppPhotos with _$AppPhotos {
   const factory AppPhotos({
     required int countOfPages,
     required List<ApiPhoto> data,
-    @Default(10) int itemsPerPage,
     required int totalItems,
+    @Default(10) int itemsPerPage,
+    @Default(1) int currentPage,
+    @Default(false) bool isLoadingNextData,
   }) = _AppPhotos;
 
   factory AppPhotos.fromJson(Map<String, dynamic> json) =>
