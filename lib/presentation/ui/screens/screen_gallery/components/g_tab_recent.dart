@@ -8,7 +8,7 @@ class _GTabRecent extends StatelessWidget {
           .add(BlocGalleryRecentEventInit());
     }
 
-    return BlocBuilder<BlocGalleryRecent, BlocGalleryRecentState>(
+    return BlocBuilder<BlocGalleryRecent, BlocGalleryState>(
       builder: (_, state) => state.when(
         loading: () => const GLoader(),
         loaded: (photos) => _GGrid(
@@ -16,9 +16,14 @@ class _GTabRecent extends StatelessWidget {
           photos: photos,
           tab: TabGalleryEnum.recent,
         ),
-        error: (description) => GDataEmpty(
+        errorStart: (description) => GDataEmpty(
           onRefresh: handleRefresh,
           description: description,
+        ),
+        errorNext: (photos, description) => _GGrid(
+          onRefresh: handleRefresh,
+          photos: photos,
+          tab: TabGalleryEnum.recent,
         ),
       ),
     );
