@@ -43,6 +43,8 @@ class BlocGalleryPopular
   ) async {
     emit(const BlocGalleryPopularState.loading());
 
+    _reset();
+
     await _getData(emit);
   }
 
@@ -84,5 +86,15 @@ class BlocGalleryPopular
 
       emit(BlocGalleryPopularState.error(description));
     }
+  }
+
+  void _reset() {
+    _page = 1;
+
+    _photos = _photos.copyWith(
+      countOfPages: 0,
+      data: [],
+      totalItems: 0,
+    );
   }
 }
