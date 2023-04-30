@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 // Project imports:
 import 'package:gallery_app/data/models/api_photo/api_image/api_image.dart';
 import 'package:gallery_app/data/repositories/repository_image/repository_image.dart';
-import 'package:gallery_app/domain/blocs/bloc_image/bloc_image_state.dart';
+import 'package:gallery_app/domain/states/bloc_image_state/bloc_image_state.dart';
 
 part 'bloc_image_events.dart';
 

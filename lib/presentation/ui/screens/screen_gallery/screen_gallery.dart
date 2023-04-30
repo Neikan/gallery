@@ -14,8 +14,8 @@ import 'package:gallery_app/data/repositories/repository_image/repository_image_
 import 'package:gallery_app/domain/blocs/bloc_gallery_popular/bloc_gallery_popular.dart';
 import 'package:gallery_app/domain/blocs/bloc_gallery_recent/bloc_gallery_recent.dart';
 import 'package:gallery_app/domain/blocs/bloc_image/bloc_image.dart';
-import 'package:gallery_app/domain/blocs/bloc_image/bloc_image_state.dart';
 import 'package:gallery_app/domain/states/bloc_gallery_state/bloc_gallery_state.dart';
+import 'package:gallery_app/domain/states/bloc_image_state/bloc_image_state.dart';
 import 'package:gallery_app/presentation/consts/enums.dart';
 import 'package:gallery_app/presentation/consts/keys.dart';
 import 'package:gallery_app/presentation/consts/routes.dart';

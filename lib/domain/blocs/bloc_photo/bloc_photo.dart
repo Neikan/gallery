@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gallery_app/data/repositories/repository_photo/repository_photo.dart';
 import 'package:gallery_app/data/services/service_http_exceptions.dart';
 import 'package:gallery_app/domain/blocs/bloc_photo/bloc_photo_events.dart';
-import 'package:gallery_app/domain/blocs/bloc_photo/bloc_photo_state.dart';
+import 'package:gallery_app/domain/states/bloc_photo_state/bloc_photo_state.dart';
 
 class BlocPhoto extends Bloc<BlocPhotoEvent, BlocPhotoState> {
   final RepositoryPhoto repo;
