@@ -12,7 +12,7 @@ class ScreenNotFound extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const UiAppBar(),
+      appBar: const UiAppBar(withDivider: true),
       body: SafeArea(
         child: GDataEmpty(
           onRefresh: () async {},
