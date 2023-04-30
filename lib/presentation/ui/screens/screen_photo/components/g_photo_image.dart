@@ -24,7 +24,7 @@ class _GGridCardPhoto extends StatelessWidget {
         child: BlocBuilder<BlocImage, BlocImageState>(
           builder: (_, state) => state.when(
             loading: () => const GLoader(color: Colors.white),
-            loaded: (filename) => _GImageData(filename: filename),
+            loaded: (file) => _GImageData(file: file),
             error: () => _GImageError(),
           ),
         ),

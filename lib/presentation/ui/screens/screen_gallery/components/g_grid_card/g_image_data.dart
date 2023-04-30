@@ -1,10 +1,10 @@
 part of '../../screen_gallery.dart';
 
 class _GImageData extends StatelessWidget {
-  final String filename;
+  final File file;
 
   const _GImageData({
-    required this.filename,
+    required this.file,
   });
 
   @override
@@ -12,7 +12,7 @@ class _GImageData extends StatelessWidget {
     return ClipRRect(
       borderRadius: const BorderRadius.all(borderRaduisSmall),
       child: Image.file(
-        File(filename),
+        file,
         fit: BoxFit.cover,
       ),
     );

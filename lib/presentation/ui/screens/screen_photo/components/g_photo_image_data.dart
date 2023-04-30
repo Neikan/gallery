@@ -1,16 +1,16 @@
 part of '../screen_photo.dart';
 
 class _GImageData extends StatelessWidget {
-  final String filename;
+  final File file;
 
   const _GImageData({
-    required this.filename,
+    required this.file,
   });
 
   @override
   Widget build(BuildContext context) {
     return Image.file(
-      File(filename),
+      file,
       fit: BoxFit.cover,
     );
   }

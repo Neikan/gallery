@@ -19,21 +19,21 @@ mixin _$BlocImageState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(String filename) loaded,
+    required TResult Function(File file) loaded,
     required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(String filename)? loaded,
+    TResult? Function(File file)? loaded,
     TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(String filename)? loaded,
+    TResult Function(File file)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) =>
@@ -119,7 +119,7 @@ class _$BlocImageStateLoading implements BlocImageStateLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(String filename) loaded,
+    required TResult Function(File file) loaded,
     required TResult Function() error,
   }) {
     return loading();
@@ -129,7 +129,7 @@ class _$BlocImageStateLoading implements BlocImageStateLoading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(String filename)? loaded,
+    TResult? Function(File file)? loaded,
     TResult? Function()? error,
   }) {
     return loading?.call();
@@ -139,7 +139,7 @@ class _$BlocImageStateLoading implements BlocImageStateLoading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(String filename)? loaded,
+    TResult Function(File file)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -194,7 +194,7 @@ abstract class _$$BlocImageStateLoadedCopyWith<$Res> {
           $Res Function(_$BlocImageStateLoaded) then) =
       __$$BlocImageStateLoadedCopyWithImpl<$Res>;
   @useResult
-  $Res call({String filename});
+  $Res call({File file});
 }
 
 /// @nodoc
@@ -208,13 +208,13 @@ class __$$BlocImageStateLoadedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? filename = null,
+    Object? file = null,
   }) {
     return _then(_$BlocImageStateLoaded(
-      null == filename
-          ? _value.filename
-          : filename // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == file
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as File,
     ));
   }
 }
@@ -222,14 +222,14 @@ class __$$BlocImageStateLoadedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$BlocImageStateLoaded implements BlocImageStateLoaded {
-  const _$BlocImageStateLoaded(this.filename);
+  const _$BlocImageStateLoaded(this.file);
 
   @override
-  final String filename;
+  final File file;
 
   @override
   String toString() {
-    return 'BlocImageState.loaded(filename: $filename)';
+    return 'BlocImageState.loaded(file: $file)';
   }
 
   @override
@@ -237,12 +237,11 @@ class _$BlocImageStateLoaded implements BlocImageStateLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BlocImageStateLoaded &&
-            (identical(other.filename, filename) ||
-                other.filename == filename));
+            (identical(other.file, file) || other.file == file));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, filename);
+  int get hashCode => Object.hash(runtimeType, file);
 
   @JsonKey(ignore: true)
   @override
@@ -255,32 +254,32 @@ class _$BlocImageStateLoaded implements BlocImageStateLoaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(String filename) loaded,
+    required TResult Function(File file) loaded,
     required TResult Function() error,
   }) {
-    return loaded(filename);
+    return loaded(file);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(String filename)? loaded,
+    TResult? Function(File file)? loaded,
     TResult? Function()? error,
   }) {
-    return loaded?.call(filename);
+    return loaded?.call(file);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(String filename)? loaded,
+    TResult Function(File file)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(filename);
+      return loaded(file);
     }
     return orElse();
   }
@@ -321,10 +320,9 @@ class _$BlocImageStateLoaded implements BlocImageStateLoaded {
 }
 
 abstract class BlocImageStateLoaded implements BlocImageState {
-  const factory BlocImageStateLoaded(final String filename) =
-      _$BlocImageStateLoaded;
+  const factory BlocImageStateLoaded(final File file) = _$BlocImageStateLoaded;
 
-  String get filename;
+  File get file;
   @JsonKey(ignore: true)
   _$$BlocImageStateLoadedCopyWith<_$BlocImageStateLoaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -369,7 +367,7 @@ class _$BlocImageStateError implements BlocImageStateError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(String filename) loaded,
+    required TResult Function(File file) loaded,
     required TResult Function() error,
   }) {
     return error();
@@ -379,7 +377,7 @@ class _$BlocImageStateError implements BlocImageStateError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(String filename)? loaded,
+    TResult? Function(File file)? loaded,
     TResult? Function()? error,
   }) {
     return error?.call();
@@ -389,7 +387,7 @@ class _$BlocImageStateError implements BlocImageStateError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(String filename)? loaded,
+    TResult Function(File file)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
