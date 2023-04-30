@@ -58,7 +58,8 @@ class BlocGalleryRecent extends Bloc<BlocGalleryRecentEvent, BlocGalleryState> {
     BlocGalleryRecentEventNext event,
     Emitter<BlocGalleryState> emit,
   ) async {
-    if (_photosState.countOfPages < _photosState.currentPage) return;
+    if (_photosState.countOfPages < _photosState.currentPage &&
+        _photosState.isLoadingNextData) return;
 
     _photosState = _photosState.copyWith(
       isLoadingNextData: true,
