@@ -9,8 +9,8 @@ import 'package:dio/dio.dart';
 import 'package:gallery_app/data/models/app_photos/app_photos.dart';
 import 'package:gallery_app/data/repositories/repository_gallery/repository_gallery.dart';
 import 'package:gallery_app/data/services/service_http_exceptions.dart';
-import 'package:gallery_app/domain/consts/keys.dart';
 import 'package:gallery_app/domain/states/bloc_gallery_state/bloc_gallery_state.dart';
+import 'package:gallery_app/domain/utils/requests.dart';
 import 'package:gallery_app/domain/utils/throttle.dart';
 
 part 'bloc_gallery_popular_events.dart';
@@ -82,11 +82,10 @@ class BlocGalleryPopular
   }
 
   Future<void> _getData() async {
-    final queryParameters = <String, dynamic>{
-      keyPopular: true,
-      keyLimit: _photosState.itemsPerPage,
-      keyPage: _photosState.currentPage,
-    };
+    final queryParameters = getGalleryParameters(
+      _photosState,
+      isPopular: true,
+    );
 
     final photos = await repo.getData(queryParameters: queryParameters);
 
