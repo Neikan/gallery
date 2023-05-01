@@ -41,35 +41,47 @@ class GBottomBar extends StatelessWidget {
 
     const padding = EdgeInsets.only(bottom: 5.0);
 
-    return SizedBox(
-      height: heightBottomBar,
-      child: BottomNavigationBar(
-        onTap: handleTap,
-        items: [
-          BottomNavigationBarItem(
-            icon: GIcon(
-              name: iconsBottomBar[routeGallery],
-              color: isGallery || isPhoto ? colors.brand : colors.gray,
-              padding: padding,
-            ),
-            label: labelsBottomBar[routeGallery],
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        shape: BoxShape.rectangle,
+        border: Border(
+          top: BorderSide(color: colors.grayBottomBar),
+        ),
+      ),
+      child: SafeArea(
+        child: SizedBox(
+          height: heightBottomBar,
+          child: BottomNavigationBar(
+            elevation: 0.0,
+            onTap: handleTap,
+            items: [
+              BottomNavigationBarItem(
+                icon: GIcon(
+                  name: iconsBottomBar[routeGallery],
+                  color: isGallery || isPhoto ? colors.brand : colors.gray,
+                  padding: padding,
+                ),
+                label: labelsBottomBar[routeGallery],
+              ),
+              BottomNavigationBarItem(
+                icon: GIcon(
+                  name: iconsBottomBar[keyButtonAddPhoto],
+                  padding: padding,
+                ),
+                label: labelsBottomBar[keyButtonAddPhoto],
+              ),
+              BottomNavigationBarItem(
+                icon: GIcon(
+                  name: iconsBottomBar[routeProfile],
+                  color: isProfile ? colors.brand : colors.gray,
+                  padding: padding,
+                ),
+                label: labelsBottomBar[routeProfile],
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: GIcon(
-              name: iconsBottomBar[keyButtonAddPhoto],
-              padding: padding,
-            ),
-            label: labelsBottomBar[keyButtonAddPhoto],
-          ),
-          BottomNavigationBarItem(
-            icon: GIcon(
-              name: iconsBottomBar[routeProfile],
-              color: isProfile ? colors.brand : colors.gray,
-              padding: padding,
-            ),
-            label: labelsBottomBar[routeProfile],
-          ),
-        ],
+        ),
       ),
     );
   }
