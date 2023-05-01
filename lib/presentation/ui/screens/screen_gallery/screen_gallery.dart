@@ -19,9 +19,9 @@ import 'package:gallery_app/presentation/ui/components/g_bottom_bar.dart';
 import 'package:gallery_app/presentation/ui/components/g_data_empty.dart';
 import 'package:gallery_app/presentation/ui/components/g_image/g_image.dart';
 import 'package:gallery_app/presentation/ui/components/g_loader.dart';
+import 'package:gallery_app/presentation/ui/components/g_loader_next.dart';
 import 'package:gallery_app/presentation/ui/components/g_refresh.dart';
 import 'package:gallery_app/presentation/ui/components/g_text_field.dart';
-import 'package:gallery_app/presentation/ui/styles/colors.dart' as colors;
 import 'package:gallery_app/presentation/ui/styles/decorations.dart';
 
 part 'components/g_grid_card/g_grid_card_photo.dart';
