@@ -14,11 +14,6 @@ class BlocGalleryState with _$BlocGalleryState {
     AppPhotos photos,
   ) = BlocGalleryStateLoaded;
 
-  const factory BlocGalleryState.errorStart(String description) =
-      BlocGalleryStateErrorStart;
-
-  const factory BlocGalleryState.errorNext(
-    AppPhotos photos,
-    String description,
-  ) = BlocGalleryStateErrorNext;
+  const factory BlocGalleryState.error(String description) =
+      BlocGalleryStateError;
 }

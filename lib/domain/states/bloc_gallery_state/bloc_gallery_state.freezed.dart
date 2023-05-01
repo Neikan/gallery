@@ -20,24 +20,21 @@ mixin _$BlocGalleryState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(AppPhotos photos) loaded,
-    required TResult Function(String description) errorStart,
-    required TResult Function(AppPhotos photos, String description) errorNext,
+    required TResult Function(String description) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(AppPhotos photos)? loaded,
-    TResult? Function(String description)? errorStart,
-    TResult? Function(AppPhotos photos, String description)? errorNext,
+    TResult? Function(String description)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(AppPhotos photos)? loaded,
-    TResult Function(String description)? errorStart,
-    TResult Function(AppPhotos photos, String description)? errorNext,
+    TResult Function(String description)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -45,24 +42,21 @@ mixin _$BlocGalleryState {
   TResult map<TResult extends Object?>({
     required TResult Function(BlocGalleryLoading value) loading,
     required TResult Function(BlocGalleryStateLoaded value) loaded,
-    required TResult Function(BlocGalleryStateErrorStart value) errorStart,
-    required TResult Function(BlocGalleryStateErrorNext value) errorNext,
+    required TResult Function(BlocGalleryStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(BlocGalleryLoading value)? loading,
     TResult? Function(BlocGalleryStateLoaded value)? loaded,
-    TResult? Function(BlocGalleryStateErrorStart value)? errorStart,
-    TResult? Function(BlocGalleryStateErrorNext value)? errorNext,
+    TResult? Function(BlocGalleryStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(BlocGalleryLoading value)? loading,
     TResult Function(BlocGalleryStateLoaded value)? loaded,
-    TResult Function(BlocGalleryStateErrorStart value)? errorStart,
-    TResult Function(BlocGalleryStateErrorNext value)? errorNext,
+    TResult Function(BlocGalleryStateError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,8 +120,7 @@ class _$BlocGalleryLoading implements BlocGalleryLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(AppPhotos photos) loaded,
-    required TResult Function(String description) errorStart,
-    required TResult Function(AppPhotos photos, String description) errorNext,
+    required TResult Function(String description) error,
   }) {
     return loading();
   }
@@ -137,8 +130,7 @@ class _$BlocGalleryLoading implements BlocGalleryLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(AppPhotos photos)? loaded,
-    TResult? Function(String description)? errorStart,
-    TResult? Function(AppPhotos photos, String description)? errorNext,
+    TResult? Function(String description)? error,
   }) {
     return loading?.call();
   }
@@ -148,8 +140,7 @@ class _$BlocGalleryLoading implements BlocGalleryLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(AppPhotos photos)? loaded,
-    TResult Function(String description)? errorStart,
-    TResult Function(AppPhotos photos, String description)? errorNext,
+    TResult Function(String description)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -163,8 +154,7 @@ class _$BlocGalleryLoading implements BlocGalleryLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(BlocGalleryLoading value) loading,
     required TResult Function(BlocGalleryStateLoaded value) loaded,
-    required TResult Function(BlocGalleryStateErrorStart value) errorStart,
-    required TResult Function(BlocGalleryStateErrorNext value) errorNext,
+    required TResult Function(BlocGalleryStateError value) error,
   }) {
     return loading(this);
   }
@@ -174,8 +164,7 @@ class _$BlocGalleryLoading implements BlocGalleryLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(BlocGalleryLoading value)? loading,
     TResult? Function(BlocGalleryStateLoaded value)? loaded,
-    TResult? Function(BlocGalleryStateErrorStart value)? errorStart,
-    TResult? Function(BlocGalleryStateErrorNext value)? errorNext,
+    TResult? Function(BlocGalleryStateError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -185,8 +174,7 @@ class _$BlocGalleryLoading implements BlocGalleryLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(BlocGalleryLoading value)? loading,
     TResult Function(BlocGalleryStateLoaded value)? loaded,
-    TResult Function(BlocGalleryStateErrorStart value)? errorStart,
-    TResult Function(BlocGalleryStateErrorNext value)? errorNext,
+    TResult Function(BlocGalleryStateError value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -277,8 +265,7 @@ class _$BlocGalleryStateLoaded implements BlocGalleryStateLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(AppPhotos photos) loaded,
-    required TResult Function(String description) errorStart,
-    required TResult Function(AppPhotos photos, String description) errorNext,
+    required TResult Function(String description) error,
   }) {
     return loaded(photos);
   }
@@ -288,8 +275,7 @@ class _$BlocGalleryStateLoaded implements BlocGalleryStateLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(AppPhotos photos)? loaded,
-    TResult? Function(String description)? errorStart,
-    TResult? Function(AppPhotos photos, String description)? errorNext,
+    TResult? Function(String description)? error,
   }) {
     return loaded?.call(photos);
   }
@@ -299,8 +285,7 @@ class _$BlocGalleryStateLoaded implements BlocGalleryStateLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(AppPhotos photos)? loaded,
-    TResult Function(String description)? errorStart,
-    TResult Function(AppPhotos photos, String description)? errorNext,
+    TResult Function(String description)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -314,8 +299,7 @@ class _$BlocGalleryStateLoaded implements BlocGalleryStateLoaded {
   TResult map<TResult extends Object?>({
     required TResult Function(BlocGalleryLoading value) loading,
     required TResult Function(BlocGalleryStateLoaded value) loaded,
-    required TResult Function(BlocGalleryStateErrorStart value) errorStart,
-    required TResult Function(BlocGalleryStateErrorNext value) errorNext,
+    required TResult Function(BlocGalleryStateError value) error,
   }) {
     return loaded(this);
   }
@@ -325,8 +309,7 @@ class _$BlocGalleryStateLoaded implements BlocGalleryStateLoaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(BlocGalleryLoading value)? loading,
     TResult? Function(BlocGalleryStateLoaded value)? loaded,
-    TResult? Function(BlocGalleryStateErrorStart value)? errorStart,
-    TResult? Function(BlocGalleryStateErrorNext value)? errorNext,
+    TResult? Function(BlocGalleryStateError value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -336,8 +319,7 @@ class _$BlocGalleryStateLoaded implements BlocGalleryStateLoaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(BlocGalleryLoading value)? loading,
     TResult Function(BlocGalleryStateLoaded value)? loaded,
-    TResult Function(BlocGalleryStateErrorStart value)? errorStart,
-    TResult Function(BlocGalleryStateErrorNext value)? errorNext,
+    TResult Function(BlocGalleryStateError value)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -358,22 +340,20 @@ abstract class BlocGalleryStateLoaded implements BlocGalleryState {
 }
 
 /// @nodoc
-abstract class _$$BlocGalleryStateErrorStartCopyWith<$Res> {
-  factory _$$BlocGalleryStateErrorStartCopyWith(
-          _$BlocGalleryStateErrorStart value,
-          $Res Function(_$BlocGalleryStateErrorStart) then) =
-      __$$BlocGalleryStateErrorStartCopyWithImpl<$Res>;
+abstract class _$$BlocGalleryStateErrorCopyWith<$Res> {
+  factory _$$BlocGalleryStateErrorCopyWith(_$BlocGalleryStateError value,
+          $Res Function(_$BlocGalleryStateError) then) =
+      __$$BlocGalleryStateErrorCopyWithImpl<$Res>;
   @useResult
   $Res call({String description});
 }
 
 /// @nodoc
-class __$$BlocGalleryStateErrorStartCopyWithImpl<$Res>
-    extends _$BlocGalleryStateCopyWithImpl<$Res, _$BlocGalleryStateErrorStart>
-    implements _$$BlocGalleryStateErrorStartCopyWith<$Res> {
-  __$$BlocGalleryStateErrorStartCopyWithImpl(
-      _$BlocGalleryStateErrorStart _value,
-      $Res Function(_$BlocGalleryStateErrorStart) _then)
+class __$$BlocGalleryStateErrorCopyWithImpl<$Res>
+    extends _$BlocGalleryStateCopyWithImpl<$Res, _$BlocGalleryStateError>
+    implements _$$BlocGalleryStateErrorCopyWith<$Res> {
+  __$$BlocGalleryStateErrorCopyWithImpl(_$BlocGalleryStateError _value,
+      $Res Function(_$BlocGalleryStateError) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -381,7 +361,7 @@ class __$$BlocGalleryStateErrorStartCopyWithImpl<$Res>
   $Res call({
     Object? description = null,
   }) {
-    return _then(_$BlocGalleryStateErrorStart(
+    return _then(_$BlocGalleryStateError(
       null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -392,22 +372,22 @@ class __$$BlocGalleryStateErrorStartCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$BlocGalleryStateErrorStart implements BlocGalleryStateErrorStart {
-  const _$BlocGalleryStateErrorStart(this.description);
+class _$BlocGalleryStateError implements BlocGalleryStateError {
+  const _$BlocGalleryStateError(this.description);
 
   @override
   final String description;
 
   @override
   String toString() {
-    return 'BlocGalleryState.errorStart(description: $description)';
+    return 'BlocGalleryState.error(description: $description)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BlocGalleryStateErrorStart &&
+            other is _$BlocGalleryStateError &&
             (identical(other.description, description) ||
                 other.description == description));
   }
@@ -418,19 +398,18 @@ class _$BlocGalleryStateErrorStart implements BlocGalleryStateErrorStart {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$BlocGalleryStateErrorStartCopyWith<_$BlocGalleryStateErrorStart>
-      get copyWith => __$$BlocGalleryStateErrorStartCopyWithImpl<
-          _$BlocGalleryStateErrorStart>(this, _$identity);
+  _$$BlocGalleryStateErrorCopyWith<_$BlocGalleryStateError> get copyWith =>
+      __$$BlocGalleryStateErrorCopyWithImpl<_$BlocGalleryStateError>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(AppPhotos photos) loaded,
-    required TResult Function(String description) errorStart,
-    required TResult Function(AppPhotos photos, String description) errorNext,
+    required TResult Function(String description) error,
   }) {
-    return errorStart(description);
+    return error(description);
   }
 
   @override
@@ -438,10 +417,9 @@ class _$BlocGalleryStateErrorStart implements BlocGalleryStateErrorStart {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(AppPhotos photos)? loaded,
-    TResult? Function(String description)? errorStart,
-    TResult? Function(AppPhotos photos, String description)? errorNext,
+    TResult? Function(String description)? error,
   }) {
-    return errorStart?.call(description);
+    return error?.call(description);
   }
 
   @override
@@ -449,12 +427,11 @@ class _$BlocGalleryStateErrorStart implements BlocGalleryStateErrorStart {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(AppPhotos photos)? loaded,
-    TResult Function(String description)? errorStart,
-    TResult Function(AppPhotos photos, String description)? errorNext,
+    TResult Function(String description)? error,
     required TResult orElse(),
   }) {
-    if (errorStart != null) {
-      return errorStart(description);
+    if (error != null) {
+      return error(description);
     }
     return orElse();
   }
@@ -464,10 +441,9 @@ class _$BlocGalleryStateErrorStart implements BlocGalleryStateErrorStart {
   TResult map<TResult extends Object?>({
     required TResult Function(BlocGalleryLoading value) loading,
     required TResult Function(BlocGalleryStateLoaded value) loaded,
-    required TResult Function(BlocGalleryStateErrorStart value) errorStart,
-    required TResult Function(BlocGalleryStateErrorNext value) errorNext,
+    required TResult Function(BlocGalleryStateError value) error,
   }) {
-    return errorStart(this);
+    return error(this);
   }
 
   @override
@@ -475,10 +451,9 @@ class _$BlocGalleryStateErrorStart implements BlocGalleryStateErrorStart {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(BlocGalleryLoading value)? loading,
     TResult? Function(BlocGalleryStateLoaded value)? loaded,
-    TResult? Function(BlocGalleryStateErrorStart value)? errorStart,
-    TResult? Function(BlocGalleryStateErrorNext value)? errorNext,
+    TResult? Function(BlocGalleryStateError value)? error,
   }) {
-    return errorStart?.call(this);
+    return error?.call(this);
   }
 
   @override
@@ -486,192 +461,22 @@ class _$BlocGalleryStateErrorStart implements BlocGalleryStateErrorStart {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(BlocGalleryLoading value)? loading,
     TResult Function(BlocGalleryStateLoaded value)? loaded,
-    TResult Function(BlocGalleryStateErrorStart value)? errorStart,
-    TResult Function(BlocGalleryStateErrorNext value)? errorNext,
+    TResult Function(BlocGalleryStateError value)? error,
     required TResult orElse(),
   }) {
-    if (errorStart != null) {
-      return errorStart(this);
+    if (error != null) {
+      return error(this);
     }
     return orElse();
   }
 }
 
-abstract class BlocGalleryStateErrorStart implements BlocGalleryState {
-  const factory BlocGalleryStateErrorStart(final String description) =
-      _$BlocGalleryStateErrorStart;
+abstract class BlocGalleryStateError implements BlocGalleryState {
+  const factory BlocGalleryStateError(final String description) =
+      _$BlocGalleryStateError;
 
   String get description;
   @JsonKey(ignore: true)
-  _$$BlocGalleryStateErrorStartCopyWith<_$BlocGalleryStateErrorStart>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$BlocGalleryStateErrorNextCopyWith<$Res> {
-  factory _$$BlocGalleryStateErrorNextCopyWith(
-          _$BlocGalleryStateErrorNext value,
-          $Res Function(_$BlocGalleryStateErrorNext) then) =
-      __$$BlocGalleryStateErrorNextCopyWithImpl<$Res>;
-  @useResult
-  $Res call({AppPhotos photos, String description});
-
-  $AppPhotosCopyWith<$Res> get photos;
-}
-
-/// @nodoc
-class __$$BlocGalleryStateErrorNextCopyWithImpl<$Res>
-    extends _$BlocGalleryStateCopyWithImpl<$Res, _$BlocGalleryStateErrorNext>
-    implements _$$BlocGalleryStateErrorNextCopyWith<$Res> {
-  __$$BlocGalleryStateErrorNextCopyWithImpl(_$BlocGalleryStateErrorNext _value,
-      $Res Function(_$BlocGalleryStateErrorNext) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? photos = null,
-    Object? description = null,
-  }) {
-    return _then(_$BlocGalleryStateErrorNext(
-      null == photos
-          ? _value.photos
-          : photos // ignore: cast_nullable_to_non_nullable
-              as AppPhotos,
-      null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $AppPhotosCopyWith<$Res> get photos {
-    return $AppPhotosCopyWith<$Res>(_value.photos, (value) {
-      return _then(_value.copyWith(photos: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$BlocGalleryStateErrorNext implements BlocGalleryStateErrorNext {
-  const _$BlocGalleryStateErrorNext(this.photos, this.description);
-
-  @override
-  final AppPhotos photos;
-  @override
-  final String description;
-
-  @override
-  String toString() {
-    return 'BlocGalleryState.errorNext(photos: $photos, description: $description)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$BlocGalleryStateErrorNext &&
-            (identical(other.photos, photos) || other.photos == photos) &&
-            (identical(other.description, description) ||
-                other.description == description));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, photos, description);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$BlocGalleryStateErrorNextCopyWith<_$BlocGalleryStateErrorNext>
-      get copyWith => __$$BlocGalleryStateErrorNextCopyWithImpl<
-          _$BlocGalleryStateErrorNext>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(AppPhotos photos) loaded,
-    required TResult Function(String description) errorStart,
-    required TResult Function(AppPhotos photos, String description) errorNext,
-  }) {
-    return errorNext(photos, description);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
-    TResult? Function(AppPhotos photos)? loaded,
-    TResult? Function(String description)? errorStart,
-    TResult? Function(AppPhotos photos, String description)? errorNext,
-  }) {
-    return errorNext?.call(photos, description);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(AppPhotos photos)? loaded,
-    TResult Function(String description)? errorStart,
-    TResult Function(AppPhotos photos, String description)? errorNext,
-    required TResult orElse(),
-  }) {
-    if (errorNext != null) {
-      return errorNext(photos, description);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(BlocGalleryLoading value) loading,
-    required TResult Function(BlocGalleryStateLoaded value) loaded,
-    required TResult Function(BlocGalleryStateErrorStart value) errorStart,
-    required TResult Function(BlocGalleryStateErrorNext value) errorNext,
-  }) {
-    return errorNext(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(BlocGalleryLoading value)? loading,
-    TResult? Function(BlocGalleryStateLoaded value)? loaded,
-    TResult? Function(BlocGalleryStateErrorStart value)? errorStart,
-    TResult? Function(BlocGalleryStateErrorNext value)? errorNext,
-  }) {
-    return errorNext?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(BlocGalleryLoading value)? loading,
-    TResult Function(BlocGalleryStateLoaded value)? loaded,
-    TResult Function(BlocGalleryStateErrorStart value)? errorStart,
-    TResult Function(BlocGalleryStateErrorNext value)? errorNext,
-    required TResult orElse(),
-  }) {
-    if (errorNext != null) {
-      return errorNext(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class BlocGalleryStateErrorNext implements BlocGalleryState {
-  const factory BlocGalleryStateErrorNext(
-          final AppPhotos photos, final String description) =
-      _$BlocGalleryStateErrorNext;
-
-  AppPhotos get photos;
-  String get description;
-  @JsonKey(ignore: true)
-  _$$BlocGalleryStateErrorNextCopyWith<_$BlocGalleryStateErrorNext>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$BlocGalleryStateErrorCopyWith<_$BlocGalleryStateError> get copyWith =>
+      throw _privateConstructorUsedError;
 }

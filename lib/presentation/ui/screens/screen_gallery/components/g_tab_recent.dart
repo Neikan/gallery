@@ -8,21 +8,18 @@ class _GTabRecent extends StatelessWidget {
           .add(BlocGalleryRecentEventInit());
     }
 
-    Widget buildGrid(AppPhotos photos) => _GGrid(
-          onRefresh: handleRefresh,
-          photos: photos,
-          tab: TabGalleryEnum.recent,
-        );
-
     return BlocBuilder<BlocGalleryRecent, BlocGalleryState>(
       builder: (_, state) => state.when(
         loading: () => const GLoader(),
-        loaded: buildGrid,
-        errorStart: (description) => GDataEmpty(
+        loaded: (photos) => _GGrid(
+          onRefresh: handleRefresh,
+          photos: photos,
+          tab: TabGalleryEnum.recent,
+        ),
+        error: (description) => GDataEmpty(
           onRefresh: handleRefresh,
           description: description,
         ),
-        errorNext: (photos, _) => buildGrid(photos),
       ),
     );
   }

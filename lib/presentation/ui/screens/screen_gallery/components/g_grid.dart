@@ -34,42 +34,39 @@ class _GGridState extends State<_GGrid> {
       );
     }
 
-    final currentCount = widget.photos.data.length;
-
     return GRefresh(
       onRefresh: widget.onRefresh,
-      child: Column(
+      child: Stack(
         children: [
-          Expanded(
-            child: GridView.builder(
-              key: PageStorageKey(widget.tab.name),
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16.0,
-                vertical: 30.0,
-              ),
-              physics: const BouncingScrollPhysics(
-                parent: AlwaysScrollableScrollPhysics(),
-              ),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 10.0,
-                mainAxisSpacing: 10.0,
-                childAspectRatio: 2.0,
-              ),
-              itemCount: currentCount,
-              itemBuilder: (_, index) {
-                return _GGridCard(
-                  photo: widget.photos.data[index],
-                );
-              },
-              controller: _scrollController,
+          GridView.builder(
+            key: PageStorageKey(widget.tab.name),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 30.0,
+            ),
+            physics: const BouncingScrollPhysics(
+              parent: AlwaysScrollableScrollPhysics(),
+            ),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 10.0,
+              mainAxisSpacing: 10.0,
+              childAspectRatio: 2.0,
+            ),
+            itemCount: widget.photos.data.length,
+            itemBuilder: (_, index) {
+              return _GGridCard(
+                photo: widget.photos.data[index],
+              );
+            },
+            controller: _scrollController,
+          ),
+          Positioned(
+            bottom: 0.0,
+            child: GLoaderNext(
+              isLoading: widget.photos.isLoadingNextData,
             ),
           ),
-          if (widget.photos.isLoadingNextData)
-            const GLoader(
-              color: colors.gray,
-              padding: EdgeInsets.all(24.0),
-            ),
         ],
       ),
     );
@@ -101,9 +98,14 @@ class _GGridState extends State<_GGrid> {
   bool get _isScrollable {
     if (!_scrollController.hasClients) return false;
 
-    final maxScroll = _scrollController.position.maxScrollExtent;
     final currentScroll = _scrollController.offset;
+    final maxScroll = _scrollController.position.maxScrollExtent;
+    final outOfRange = _scrollController.position.outOfRange;
 
-    return currentScroll >= (maxScroll * 0.9);
+    final isLoadingNextData = widget.photos.isLoadingNextData;
+
+    return currentScroll >= (maxScroll * 0.9) &&
+        !outOfRange &&
+        !isLoadingNextData;
   }
 }
