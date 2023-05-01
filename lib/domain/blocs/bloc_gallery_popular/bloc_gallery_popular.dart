@@ -54,7 +54,7 @@ class BlocGalleryPopular
     } on DioError catch (e) {
       final description = ServiceHttpExceptions.fromError(e).toString();
 
-      emit(BlocGalleryState.errorStart(description));
+      emit(BlocGalleryState.error(description));
     }
   }
 
@@ -72,12 +72,12 @@ class BlocGalleryPopular
 
     try {
       await _getData();
-
+    } on DioError catch (_) {
+      _photosState = _photosState.copyWith(
+        isLoadingNextData: false,
+      );
+    } finally {
       emit(BlocGalleryState.loaded(_photosState));
-    } on DioError catch (e) {
-      final description = ServiceHttpExceptions.fromError(e).toString();
-
-      emit(BlocGalleryState.errorNext(_photosState, description));
     }
   }
 
